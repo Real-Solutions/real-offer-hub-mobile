@@ -6,7 +6,8 @@ subscription OnCreateUserType($filter: ModelSubscriptionUserTypeFilterInput) {
     users {
       items {
         id
-        name
+        firstName
+        lastName
         userTypeId
         createdAt
         updatedAt
@@ -24,7 +25,8 @@ subscription OnUpdateUserType($filter: ModelSubscriptionUserTypeFilterInput) {
     users {
       items {
         id
-        name
+        firstName
+        lastName
         userTypeId
         createdAt
         updatedAt
@@ -42,7 +44,8 @@ subscription OnDeleteUserType($filter: ModelSubscriptionUserTypeFilterInput) {
     users {
       items {
         id
-        name
+        firstName
+        lastName
         userTypeId
         createdAt
         updatedAt
@@ -56,7 +59,19 @@ subscription OnDeleteUserType($filter: ModelSubscriptionUserTypeFilterInput) {
 subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
   onCreateUser(filter: $filter) {
     id
-    name
+    firstName
+    lastName
+    clients {
+      items {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     userTypeId
     userType {
       id
@@ -74,7 +89,19 @@ subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
 subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
   onUpdateUser(filter: $filter) {
     id
-    name
+    firstName
+    lastName
+    clients {
+      items {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     userTypeId
     userType {
       id
@@ -92,13 +119,748 @@ subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
 subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
   onDeleteUser(filter: $filter) {
     id
-    name
+    firstName
+    lastName
+    clients {
+      items {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     userTypeId
     userType {
       id
       type
       users {
         nextToken
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateClient($filter: ModelSubscriptionClientFilterInput) {
+  onCreateClient(filter: $filter) {
+    id
+    firstName
+    lastName
+    properties {
+      items {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    userId
+    user {
+      id
+      firstName
+      lastName
+      clients {
+        nextToken
+      }
+      userTypeId
+      userType {
+        id
+        type
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateClient($filter: ModelSubscriptionClientFilterInput) {
+  onUpdateClient(filter: $filter) {
+    id
+    firstName
+    lastName
+    properties {
+      items {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    userId
+    user {
+      id
+      firstName
+      lastName
+      clients {
+        nextToken
+      }
+      userTypeId
+      userType {
+        id
+        type
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteClient($filter: ModelSubscriptionClientFilterInput) {
+  onDeleteClient(filter: $filter) {
+    id
+    firstName
+    lastName
+    properties {
+      items {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    userId
+    user {
+      id
+      firstName
+      lastName
+      clients {
+        nextToken
+      }
+      userTypeId
+      userType {
+        id
+        type
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateProperty($filter: ModelSubscriptionPropertyFilterInput) {
+  onCreateProperty(filter: $filter) {
+    id
+    address
+    price
+    initialPosting
+    numberOfRooms
+    numberOfBathrooms
+    squareFootage
+    yearBuilt
+    priceString
+    squareFootageString
+    offers {
+      items {
+        id
+        buyersFirstName
+        buyersLastName
+        offerPrice
+        ernestMoneyAmount
+        downPayment
+        closeOfEscrow
+        concessions
+        loanType
+        contingentBuyer
+        personalPropertyRequested
+        hoa
+        homeWarranty
+        inspectionPeriod
+        escalation
+        responseDate
+        responseTime
+        additionalTermsAndConditions
+        priceString
+        downPaymentString
+        ernestMoneyAmountString
+        contingentBuyerString
+        responseDateString
+        closeOfEscrowString
+        responseTimeString
+        propertyId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    clientId
+    client {
+      id
+      firstName
+      lastName
+      properties {
+        nextToken
+      }
+      userId
+      user {
+        id
+        firstName
+        lastName
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateProperty($filter: ModelSubscriptionPropertyFilterInput) {
+  onUpdateProperty(filter: $filter) {
+    id
+    address
+    price
+    initialPosting
+    numberOfRooms
+    numberOfBathrooms
+    squareFootage
+    yearBuilt
+    priceString
+    squareFootageString
+    offers {
+      items {
+        id
+        buyersFirstName
+        buyersLastName
+        offerPrice
+        ernestMoneyAmount
+        downPayment
+        closeOfEscrow
+        concessions
+        loanType
+        contingentBuyer
+        personalPropertyRequested
+        hoa
+        homeWarranty
+        inspectionPeriod
+        escalation
+        responseDate
+        responseTime
+        additionalTermsAndConditions
+        priceString
+        downPaymentString
+        ernestMoneyAmountString
+        contingentBuyerString
+        responseDateString
+        closeOfEscrowString
+        responseTimeString
+        propertyId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    clientId
+    client {
+      id
+      firstName
+      lastName
+      properties {
+        nextToken
+      }
+      userId
+      user {
+        id
+        firstName
+        lastName
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteProperty($filter: ModelSubscriptionPropertyFilterInput) {
+  onDeleteProperty(filter: $filter) {
+    id
+    address
+    price
+    initialPosting
+    numberOfRooms
+    numberOfBathrooms
+    squareFootage
+    yearBuilt
+    priceString
+    squareFootageString
+    offers {
+      items {
+        id
+        buyersFirstName
+        buyersLastName
+        offerPrice
+        ernestMoneyAmount
+        downPayment
+        closeOfEscrow
+        concessions
+        loanType
+        contingentBuyer
+        personalPropertyRequested
+        hoa
+        homeWarranty
+        inspectionPeriod
+        escalation
+        responseDate
+        responseTime
+        additionalTermsAndConditions
+        priceString
+        downPaymentString
+        ernestMoneyAmountString
+        contingentBuyerString
+        responseDateString
+        closeOfEscrowString
+        responseTimeString
+        propertyId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    clientId
+    client {
+      id
+      firstName
+      lastName
+      properties {
+        nextToken
+      }
+      userId
+      user {
+        id
+        firstName
+        lastName
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateOffer($filter: ModelSubscriptionOfferFilterInput) {
+  onCreateOffer(filter: $filter) {
+    id
+    buyersFirstName
+    buyersLastName
+    offerPrice
+    ernestMoneyAmount
+    downPayment
+    closeOfEscrow
+    concessions
+    loanType
+    contingentBuyer
+    personalPropertyRequested
+    hoa
+    homeWarranty
+    inspectionPeriod
+    escalation
+    responseDate
+    responseTime
+    additionalTermsAndConditions
+    priceString
+    downPaymentString
+    ernestMoneyAmountString
+    contingentBuyerString
+    responseDateString
+    closeOfEscrowString
+    responseTimeString
+    messages {
+      items {
+        id
+        body
+        date
+        offerId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    propertyId
+    property {
+      id
+      address
+      price
+      initialPosting
+      numberOfRooms
+      numberOfBathrooms
+      squareFootage
+      yearBuilt
+      priceString
+      squareFootageString
+      offers {
+        nextToken
+      }
+      clientId
+      client {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateOffer($filter: ModelSubscriptionOfferFilterInput) {
+  onUpdateOffer(filter: $filter) {
+    id
+    buyersFirstName
+    buyersLastName
+    offerPrice
+    ernestMoneyAmount
+    downPayment
+    closeOfEscrow
+    concessions
+    loanType
+    contingentBuyer
+    personalPropertyRequested
+    hoa
+    homeWarranty
+    inspectionPeriod
+    escalation
+    responseDate
+    responseTime
+    additionalTermsAndConditions
+    priceString
+    downPaymentString
+    ernestMoneyAmountString
+    contingentBuyerString
+    responseDateString
+    closeOfEscrowString
+    responseTimeString
+    messages {
+      items {
+        id
+        body
+        date
+        offerId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    propertyId
+    property {
+      id
+      address
+      price
+      initialPosting
+      numberOfRooms
+      numberOfBathrooms
+      squareFootage
+      yearBuilt
+      priceString
+      squareFootageString
+      offers {
+        nextToken
+      }
+      clientId
+      client {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteOffer($filter: ModelSubscriptionOfferFilterInput) {
+  onDeleteOffer(filter: $filter) {
+    id
+    buyersFirstName
+    buyersLastName
+    offerPrice
+    ernestMoneyAmount
+    downPayment
+    closeOfEscrow
+    concessions
+    loanType
+    contingentBuyer
+    personalPropertyRequested
+    hoa
+    homeWarranty
+    inspectionPeriod
+    escalation
+    responseDate
+    responseTime
+    additionalTermsAndConditions
+    priceString
+    downPaymentString
+    ernestMoneyAmountString
+    contingentBuyerString
+    responseDateString
+    closeOfEscrowString
+    responseTimeString
+    messages {
+      items {
+        id
+        body
+        date
+        offerId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    propertyId
+    property {
+      id
+      address
+      price
+      initialPosting
+      numberOfRooms
+      numberOfBathrooms
+      squareFootage
+      yearBuilt
+      priceString
+      squareFootageString
+      offers {
+        nextToken
+      }
+      clientId
+      client {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnCreateMessage($filter: ModelSubscriptionMessageFilterInput) {
+  onCreateMessage(filter: $filter) {
+    id
+    body
+    date
+    offerId
+    offer {
+      id
+      buyersFirstName
+      buyersLastName
+      offerPrice
+      ernestMoneyAmount
+      downPayment
+      closeOfEscrow
+      concessions
+      loanType
+      contingentBuyer
+      personalPropertyRequested
+      hoa
+      homeWarranty
+      inspectionPeriod
+      escalation
+      responseDate
+      responseTime
+      additionalTermsAndConditions
+      priceString
+      downPaymentString
+      ernestMoneyAmountString
+      contingentBuyerString
+      responseDateString
+      closeOfEscrowString
+      responseTimeString
+      messages {
+        nextToken
+      }
+      propertyId
+      property {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnUpdateMessage($filter: ModelSubscriptionMessageFilterInput) {
+  onUpdateMessage(filter: $filter) {
+    id
+    body
+    date
+    offerId
+    offer {
+      id
+      buyersFirstName
+      buyersLastName
+      offerPrice
+      ernestMoneyAmount
+      downPayment
+      closeOfEscrow
+      concessions
+      loanType
+      contingentBuyer
+      personalPropertyRequested
+      hoa
+      homeWarranty
+      inspectionPeriod
+      escalation
+      responseDate
+      responseTime
+      additionalTermsAndConditions
+      priceString
+      downPaymentString
+      ernestMoneyAmountString
+      contingentBuyerString
+      responseDateString
+      closeOfEscrowString
+      responseTimeString
+      messages {
+        nextToken
+      }
+      propertyId
+      property {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+subscription OnDeleteMessage($filter: ModelSubscriptionMessageFilterInput) {
+  onDeleteMessage(filter: $filter) {
+    id
+    body
+    date
+    offerId
+    offer {
+      id
+      buyersFirstName
+      buyersLastName
+      offerPrice
+      ernestMoneyAmount
+      downPayment
+      closeOfEscrow
+      concessions
+      loanType
+      contingentBuyer
+      personalPropertyRequested
+      hoa
+      homeWarranty
+      inspectionPeriod
+      escalation
+      responseDate
+      responseTime
+      additionalTermsAndConditions
+      priceString
+      downPaymentString
+      ernestMoneyAmountString
+      contingentBuyerString
+      responseDateString
+      closeOfEscrowString
+      responseTimeString
+      messages {
+        nextToken
+      }
+      propertyId
+      property {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt

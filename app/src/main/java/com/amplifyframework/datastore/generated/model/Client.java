@@ -21,22 +21,22 @@ import com.amplifyframework.core.model.query.predicate.QueryField;
 
 import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 
-/** This is an auto generated class representing the User type in your schema. */
+/** This is an auto generated class representing the Client type in your schema. */
 @SuppressWarnings("all")
-@ModelConfig(pluralName = "Users", type = Model.Type.USER, version = 1, authRules = {
+@ModelConfig(pluralName = "Clients", type = Model.Type.USER, version = 1, authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
-@Index(name = "byUserType", fields = {"userTypeId","lastName"})
-public final class User implements Model {
-  public static final QueryField ID = field("User", "id");
-  public static final QueryField FIRST_NAME = field("User", "firstName");
-  public static final QueryField LAST_NAME = field("User", "lastName");
-  public static final QueryField USER_TYPE = field("User", "userTypeId");
+@Index(name = "byUser", fields = {"userId","lastName"})
+public final class Client implements Model {
+  public static final QueryField ID = field("Client", "id");
+  public static final QueryField FIRST_NAME = field("Client", "firstName");
+  public static final QueryField LAST_NAME = field("Client", "lastName");
+  public static final QueryField USER = field("Client", "userId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String firstName;
   private final @ModelField(targetType="String", isRequired = true) String lastName;
-  private final @ModelField(targetType="Client") @HasMany(associatedWith = "user", type = Client.class) List<Client> clients = null;
-  private final @ModelField(targetType="UserType") @BelongsTo(targetName = "userTypeId", targetNames = {"userTypeId"}, type = UserType.class) UserType userType;
+  private final @ModelField(targetType="Property") @HasMany(associatedWith = "client", type = Property.class) List<Property> properties = null;
+  private final @ModelField(targetType="User") @BelongsTo(targetName = "userId", targetNames = {"userId"}, type = User.class) User user;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String resolveIdentifier() {
@@ -55,12 +55,12 @@ public final class User implements Model {
       return lastName;
   }
   
-  public List<Client> getClients() {
-      return clients;
+  public List<Property> getProperties() {
+      return properties;
   }
   
-  public UserType getUserType() {
-      return userType;
+  public User getUser() {
+      return user;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -71,11 +71,11 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String firstName, String lastName, UserType userType) {
+  private Client(String id, String firstName, String lastName, User user) {
     this.id = id;
     this.firstName = firstName;
     this.lastName = lastName;
-    this.userType = userType;
+    this.user = user;
   }
   
   @Override
@@ -85,13 +85,13 @@ public final class User implements Model {
       } else if(obj == null || getClass() != obj.getClass()) {
         return false;
       } else {
-      User user = (User) obj;
-      return ObjectsCompat.equals(getId(), user.getId()) &&
-              ObjectsCompat.equals(getFirstName(), user.getFirstName()) &&
-              ObjectsCompat.equals(getLastName(), user.getLastName()) &&
-              ObjectsCompat.equals(getUserType(), user.getUserType()) &&
-              ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
-              ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
+      Client client = (Client) obj;
+      return ObjectsCompat.equals(getId(), client.getId()) &&
+              ObjectsCompat.equals(getFirstName(), client.getFirstName()) &&
+              ObjectsCompat.equals(getLastName(), client.getLastName()) &&
+              ObjectsCompat.equals(getUser(), client.getUser()) &&
+              ObjectsCompat.equals(getCreatedAt(), client.getCreatedAt()) &&
+              ObjectsCompat.equals(getUpdatedAt(), client.getUpdatedAt());
       }
   }
   
@@ -101,7 +101,7 @@ public final class User implements Model {
       .append(getId())
       .append(getFirstName())
       .append(getLastName())
-      .append(getUserType())
+      .append(getUser())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -111,11 +111,11 @@ public final class User implements Model {
   @Override
    public String toString() {
     return new StringBuilder()
-      .append("User {")
+      .append("Client {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("firstName=" + String.valueOf(getFirstName()) + ", ")
       .append("lastName=" + String.valueOf(getLastName()) + ", ")
-      .append("userType=" + String.valueOf(getUserType()) + ", ")
+      .append("user=" + String.valueOf(getUser()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -134,8 +134,8 @@ public final class User implements Model {
    * @param id the id of the existing item this instance will represent
    * @return an instance of this model with only ID populated
    */
-  public static User justId(String id) {
-    return new User(
+  public static Client justId(String id) {
+    return new Client(
       id,
       null,
       null,
@@ -147,7 +147,7 @@ public final class User implements Model {
     return new CopyOfBuilder(id,
       firstName,
       lastName,
-      userType);
+      user);
   }
   public interface FirstNameStep {
     LastNameStep firstName(String firstName);
@@ -160,9 +160,9 @@ public final class User implements Model {
   
 
   public interface BuildStep {
-    User build();
+    Client build();
     BuildStep id(String id);
-    BuildStep userType(UserType userType);
+    BuildStep user(User user);
   }
   
 
@@ -170,16 +170,16 @@ public final class User implements Model {
     private String id;
     private String firstName;
     private String lastName;
-    private UserType userType;
+    private User user;
     @Override
-     public User build() {
+     public Client build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
-        return new User(
+        return new Client(
           id,
           firstName,
           lastName,
-          userType);
+          user);
     }
     
     @Override
@@ -197,8 +197,8 @@ public final class User implements Model {
     }
     
     @Override
-     public BuildStep userType(UserType userType) {
-        this.userType = userType;
+     public BuildStep user(User user) {
+        this.user = user;
         return this;
     }
     
@@ -214,11 +214,11 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String firstName, String lastName, UserType userType) {
+    private CopyOfBuilder(String id, String firstName, String lastName, User user) {
       super.id(id);
       super.firstName(firstName)
         .lastName(lastName)
-        .userType(userType);
+        .user(user);
     }
     
     @Override
@@ -232,8 +232,8 @@ public final class User implements Model {
     }
     
     @Override
-     public CopyOfBuilder userType(UserType userType) {
-      return (CopyOfBuilder) super.userType(userType);
+     public CopyOfBuilder user(User user) {
+      return (CopyOfBuilder) super.user(user);
     }
   }
   
