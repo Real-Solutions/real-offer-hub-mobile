@@ -8,7 +8,78 @@ type UserType @model @auth(rules: [{allow: public}]){
 
 type User @model @auth(rules: [{allow: public}]){
   id: ID!
-  name: String!
-  userTypeId: ID! @index(name: "byUserType", sortKeyFields: ["name"])
+  firstName: String!
+  lastName: String!
+  clients: [Client] @hasMany(indexName: "byUser", fields:["id"])
+
+  userTypeId: ID! @index(name: "byUserType", sortKeyFields: ["lastName"])
   userType: UserType @belongsTo(fields: ["userTypeId"])
+}
+
+type Client @model @auth(rules: [{allow: public}]){
+    id: ID!
+    firstName: String!
+    lastName: String!
+    properties: [Property] @hasMany(indexName: "byClient", fields:["id"])
+
+    userId: ID! @index(name: "byUser", sortKeyFields: ["lastName"])
+    user: User @belongsTo(fields: ["userId"])
+}
+
+type Property @model @auth(rules: [{allow: public}]){
+    id: ID!
+    address: String!
+    price: Float!
+    initialPosting: AWSDate!
+    numberOfRooms: Int!
+    numberOfBathrooms: Int!
+    squareFootage: Float!
+    yearBuilt: Int!
+    priceString: String
+    squareFootageString: String
+    offers: [Offer] @hasMany(indexName: "byProperty", fields:["id"])
+
+    clientId: ID! @index(name: "byClient", sortKeyFields: ["address"])
+    client: Client @belongsTo(fields: ["clientId"])
+}
+
+type Offer @model @auth(rules: [{allow: public}]){
+    id: ID!
+    buyersFirstName: String!
+    buyersLastName: String!
+    offerPrice: Float!
+    ernestMoneyAmount: Float!
+    downPayment: Float!
+    closeOfEscrow: AWSDate!
+    concessions: String!
+    loanType: String!
+    contingentBuyer: Boolean!
+    personalPropertyRequested: String!
+    hoa: String!
+    homeWarranty: String!
+    inspectionPeriod: String!
+    escalation: Boolean!
+    responseDate: AWSDate!
+    responseTime: AWSTime!
+    additionalTermsAndConditions: String!
+    priceString: String!
+    downPaymentString: String!
+    ernestMoneyAmountString: String!
+    contingentBuyerString: String!
+    responseDateString: String!
+    closeOfEscrowString: String!
+    responseTimeString: String!
+    messages: [Message] @hasMany(indexName: "byOffer", fields:["id"])
+
+    propertyId: ID! @index(name: "byProperty", sortKeyFields: ["offerPrice"])
+    property: Property @belongsTo(fields: ["propertyId"])
+}
+
+type Message @model @auth(rules: [{allow: public}]){
+    id: ID!
+    body: String!
+    date: AWSDate!
+
+    offerId: ID! @index(name: "byOffer", sortKeyFields: ["date"])
+    offer: Offer @belongsTo(fields: ["offerId"])
 }

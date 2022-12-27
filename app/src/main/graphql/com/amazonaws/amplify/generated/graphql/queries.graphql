@@ -6,7 +6,8 @@ query GetUserType($id: ID!) {
     users {
       items {
         id
-        name
+        firstName
+        lastName
         userTypeId
         createdAt
         updatedAt
@@ -38,7 +39,19 @@ query ListUserTypes(
 query GetUser($id: ID!) {
   getUser(id: $id) {
     id
-    name
+    firstName
+    lastName
+    clients {
+      items {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
     userTypeId
     userType {
       id
@@ -61,7 +74,11 @@ query ListUsers(
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
+      firstName
+      lastName
+      clients {
+        nextToken
+      }
       userTypeId
       userType {
         id
@@ -75,17 +92,425 @@ query ListUsers(
     nextToken
   }
 }
-query UsersByUserTypeIdAndName(
+query GetClient($id: ID!) {
+  getClient(id: $id) {
+    id
+    firstName
+    lastName
+    properties {
+      items {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    userId
+    user {
+      id
+      firstName
+      lastName
+      clients {
+        nextToken
+      }
+      userTypeId
+      userType {
+        id
+        type
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListClients(
+  $filter: ModelClientFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listClients(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      firstName
+      lastName
+      properties {
+        nextToken
+      }
+      userId
+      user {
+        id
+        firstName
+        lastName
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetProperty($id: ID!) {
+  getProperty(id: $id) {
+    id
+    address
+    price
+    initialPosting
+    numberOfRooms
+    numberOfBathrooms
+    squareFootage
+    yearBuilt
+    priceString
+    squareFootageString
+    offers {
+      items {
+        id
+        buyersFirstName
+        buyersLastName
+        offerPrice
+        ernestMoneyAmount
+        downPayment
+        closeOfEscrow
+        concessions
+        loanType
+        contingentBuyer
+        personalPropertyRequested
+        hoa
+        homeWarranty
+        inspectionPeriod
+        escalation
+        responseDate
+        responseTime
+        additionalTermsAndConditions
+        priceString
+        downPaymentString
+        ernestMoneyAmountString
+        contingentBuyerString
+        responseDateString
+        closeOfEscrowString
+        responseTimeString
+        propertyId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    clientId
+    client {
+      id
+      firstName
+      lastName
+      properties {
+        nextToken
+      }
+      userId
+      user {
+        id
+        firstName
+        lastName
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListProperties(
+  $filter: ModelPropertyFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listProperties(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      address
+      price
+      initialPosting
+      numberOfRooms
+      numberOfBathrooms
+      squareFootage
+      yearBuilt
+      priceString
+      squareFootageString
+      offers {
+        nextToken
+      }
+      clientId
+      client {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetOffer($id: ID!) {
+  getOffer(id: $id) {
+    id
+    buyersFirstName
+    buyersLastName
+    offerPrice
+    ernestMoneyAmount
+    downPayment
+    closeOfEscrow
+    concessions
+    loanType
+    contingentBuyer
+    personalPropertyRequested
+    hoa
+    homeWarranty
+    inspectionPeriod
+    escalation
+    responseDate
+    responseTime
+    additionalTermsAndConditions
+    priceString
+    downPaymentString
+    ernestMoneyAmountString
+    contingentBuyerString
+    responseDateString
+    closeOfEscrowString
+    responseTimeString
+    messages {
+      items {
+        id
+        body
+        date
+        offerId
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+    propertyId
+    property {
+      id
+      address
+      price
+      initialPosting
+      numberOfRooms
+      numberOfBathrooms
+      squareFootage
+      yearBuilt
+      priceString
+      squareFootageString
+      offers {
+        nextToken
+      }
+      clientId
+      client {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListOffers(
+  $filter: ModelOfferFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listOffers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      buyersFirstName
+      buyersLastName
+      offerPrice
+      ernestMoneyAmount
+      downPayment
+      closeOfEscrow
+      concessions
+      loanType
+      contingentBuyer
+      personalPropertyRequested
+      hoa
+      homeWarranty
+      inspectionPeriod
+      escalation
+      responseDate
+      responseTime
+      additionalTermsAndConditions
+      priceString
+      downPaymentString
+      ernestMoneyAmountString
+      contingentBuyerString
+      responseDateString
+      closeOfEscrowString
+      responseTimeString
+      messages {
+        nextToken
+      }
+      propertyId
+      property {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query GetMessage($id: ID!) {
+  getMessage(id: $id) {
+    id
+    body
+    date
+    offerId
+    offer {
+      id
+      buyersFirstName
+      buyersLastName
+      offerPrice
+      ernestMoneyAmount
+      downPayment
+      closeOfEscrow
+      concessions
+      loanType
+      contingentBuyer
+      personalPropertyRequested
+      hoa
+      homeWarranty
+      inspectionPeriod
+      escalation
+      responseDate
+      responseTime
+      additionalTermsAndConditions
+      priceString
+      downPaymentString
+      ernestMoneyAmountString
+      contingentBuyerString
+      responseDateString
+      closeOfEscrowString
+      responseTimeString
+      messages {
+        nextToken
+      }
+      propertyId
+      property {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListMessages(
+  $filter: ModelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listMessages(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      body
+      date
+      offerId
+      offer {
+        id
+        buyersFirstName
+        buyersLastName
+        offerPrice
+        ernestMoneyAmount
+        downPayment
+        closeOfEscrow
+        concessions
+        loanType
+        contingentBuyer
+        personalPropertyRequested
+        hoa
+        homeWarranty
+        inspectionPeriod
+        escalation
+        responseDate
+        responseTime
+        additionalTermsAndConditions
+        priceString
+        downPaymentString
+        ernestMoneyAmountString
+        contingentBuyerString
+        responseDateString
+        closeOfEscrowString
+        responseTimeString
+        propertyId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query UsersByUserTypeIdAndLastName(
   $userTypeId: ID!
-  $name: ModelStringKeyConditionInput
+  $lastName: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  usersByUserTypeIdAndName(
+  usersByUserTypeIdAndLastName(
     userTypeId: $userTypeId
-    name: $name
+    lastName: $lastName
     sortDirection: $sortDirection
     filter: $filter
     limit: $limit
@@ -93,11 +518,222 @@ query UsersByUserTypeIdAndName(
   ) {
     items {
       id
-      name
+      firstName
+      lastName
+      clients {
+        nextToken
+      }
       userTypeId
       userType {
         id
         type
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query ClientsByUserIdAndLastName(
+  $userId: ID!
+  $lastName: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelClientFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  clientsByUserIdAndLastName(
+    userId: $userId
+    lastName: $lastName
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      firstName
+      lastName
+      properties {
+        nextToken
+      }
+      userId
+      user {
+        id
+        firstName
+        lastName
+        userTypeId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query PropertiesByClientIdAndAddress(
+  $clientId: ID!
+  $address: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelPropertyFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  propertiesByClientIdAndAddress(
+    clientId: $clientId
+    address: $address
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      address
+      price
+      initialPosting
+      numberOfRooms
+      numberOfBathrooms
+      squareFootage
+      yearBuilt
+      priceString
+      squareFootageString
+      offers {
+        nextToken
+      }
+      clientId
+      client {
+        id
+        firstName
+        lastName
+        userId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query OffersByPropertyIdAndOfferPrice(
+  $propertyId: ID!
+  $offerPrice: ModelFloatKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelOfferFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  offersByPropertyIdAndOfferPrice(
+    propertyId: $propertyId
+    offerPrice: $offerPrice
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      buyersFirstName
+      buyersLastName
+      offerPrice
+      ernestMoneyAmount
+      downPayment
+      closeOfEscrow
+      concessions
+      loanType
+      contingentBuyer
+      personalPropertyRequested
+      hoa
+      homeWarranty
+      inspectionPeriod
+      escalation
+      responseDate
+      responseTime
+      additionalTermsAndConditions
+      priceString
+      downPaymentString
+      ernestMoneyAmountString
+      contingentBuyerString
+      responseDateString
+      closeOfEscrowString
+      responseTimeString
+      messages {
+        nextToken
+      }
+      propertyId
+      property {
+        id
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
+        clientId
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+query MessagesByOfferIdAndDate(
+  $offerId: ID!
+  $date: ModelStringKeyConditionInput
+  $sortDirection: ModelSortDirection
+  $filter: ModelMessageFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  messagesByOfferIdAndDate(
+    offerId: $offerId
+    date: $date
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      body
+      date
+      offerId
+      offer {
+        id
+        buyersFirstName
+        buyersLastName
+        offerPrice
+        ernestMoneyAmount
+        downPayment
+        closeOfEscrow
+        concessions
+        loanType
+        contingentBuyer
+        personalPropertyRequested
+        hoa
+        homeWarranty
+        inspectionPeriod
+        escalation
+        responseDate
+        responseTime
+        additionalTermsAndConditions
+        priceString
+        downPaymentString
+        ernestMoneyAmountString
+        contingentBuyerString
+        responseDateString
+        closeOfEscrowString
+        responseTimeString
+        propertyId
         createdAt
         updatedAt
       }
