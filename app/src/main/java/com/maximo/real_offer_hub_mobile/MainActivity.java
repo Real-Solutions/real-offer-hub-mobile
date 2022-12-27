@@ -8,13 +8,20 @@ import android.widget.Button;
 
 import com.maximo.real_offer_hub_mobile.activities.DataTest;
 
-public class MainActivity extends AppCompatActivity {
+
+import com.maximo.real_offer_hub_mobile.activities.DrawerBaseActivity;
+import com.maximo.real_offer_hub_mobile.databinding.ActivityMainBinding;
+
+public class MainActivity extends DrawerBaseActivity {
     public static final String TAG = "mainActivity";
+    ActivityMainBinding activityMainBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(activityMainBinding.getRoot());
+        allocateActivityTitle("Main Activity");
     }
 
     @Override
