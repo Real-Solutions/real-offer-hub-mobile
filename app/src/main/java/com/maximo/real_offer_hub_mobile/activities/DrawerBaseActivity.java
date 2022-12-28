@@ -64,6 +64,11 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 overridePendingTransition(0,0);
                 break;
 
+            case R.id.offer_form:
+                startActivity(new Intent(this, OfferFormActivity.class));
+                overridePendingTransition(0,0);
+                break;
+
             case R.id.clients:
                 startActivity(new Intent(this, ClientsActivity.class));
                 overridePendingTransition(0,0);
