@@ -19,5 +19,26 @@
         "realofferhubmobilea0219cbc": {}
       }
     }
+  },
+  "devs": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-realofferhubmobile-devs-164853-authRole",
+      "UnauthRoleArn": "arn:aws:iam::114885317445:role/amplify-realofferhubmobile-devs-164853-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::114885317445:role/amplify-realofferhubmobile-devs-164853-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-realofferhubmobile-devs-164853-deployment",
+      "UnauthRoleName": "amplify-realofferhubmobile-devs-164853-unauthRole",
+      "StackName": "amplify-realofferhubmobile-devs-164853",
+      "StackId": "arn:aws:cloudformation:us-east-1:114885317445:stack/amplify-realofferhubmobile-devs-164853/ce7562f0-8701-11ed-a412-0a2bb50245cd",
+      "AmplifyAppId": "d1jdxlva3aj3za"
+    },
+    "categories": {
+      "auth": {
+        "realofferhubmobilea0219cbc": {}
+      },
+      "api": {
+        "realofferhubmobile": {}
+      }
+    }
   }
 }

@@ -15,6 +15,7 @@ import com.amplifyframework.auth.cognito.result.HostedUIError;
 import com.amplifyframework.auth.cognito.result.RevokeTokenError;
 import com.maximo.real_offer_hub_mobile.MainActivity;
 import com.maximo.real_offer_hub_mobile.R;
+import com.maximo.real_offer_hub_mobile.activities.DashboardActivity;
 import com.maximo.real_offer_hub_mobile.activities.DrawerBaseActivity;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityLogoutBinding;
 
@@ -40,7 +41,7 @@ public class LogoutActivity extends DrawerBaseActivity {
             if (signOutResult instanceof AWSCognitoAuthSignOutResult.CompleteSignOut) {
                 // Sign Out completed fully and without errors.
                 Log.i("AuthQuickStart", "Signed out successfully");
-                startActivity(new Intent(this, MainActivity.class));
+                startActivity(new Intent(this, DashboardActivity.class));
             } else if (signOutResult instanceof AWSCognitoAuthSignOutResult.PartialSignOut) {
                 // Sign Out completed with some errors. User is signed out of the device.
                 AWSCognitoAuthSignOutResult.PartialSignOut partialSignOutResult =
