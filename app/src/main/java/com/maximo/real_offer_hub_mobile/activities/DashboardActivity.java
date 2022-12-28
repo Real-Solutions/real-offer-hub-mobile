@@ -20,15 +20,5 @@ public class DashboardActivity extends DrawerBaseActivity {
         activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
         allocateActivityTitle("Dashboard");
-        setupVerifyCodeButton();
-    }
-
-    public void setupVerifyCodeButton(){
-
-        Button verifyCodeButton = this.findViewById(R.id.DashboardActivityButtonVerifyCode);
-        verifyCodeButton.setOnClickListener(view -> {
-            Intent goToConfirmationActivity = new Intent(this, ConfirmationActivity.class);
-            startActivity(goToConfirmationActivity);
-        });
     }
 }
