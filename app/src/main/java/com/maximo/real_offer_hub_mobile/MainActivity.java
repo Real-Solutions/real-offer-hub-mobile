@@ -27,14 +27,14 @@ public class MainActivity extends DrawerBaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        setupButtons();
+//        setupButtons();
     }
 
-    public void setupButtons(){
-
-        Button goToDataTestButton = this.findViewById(R.id.MainActivityButtonDataTest);
-        goToDataTestButton.setOnClickListener(view ->
-            startActivity(new Intent(this, DataTest.class))
-        );
-    }
+//    public void setupButtons(){
+//
+//        Button goToDataTestButton = this.findViewById(R.id.MainActivityButtonDataTest);
+//        goToDataTestButton.setOnClickListener(view ->
+//            startActivity(new Intent(this, DataTest.class))
+//        );
+//    }
 }
