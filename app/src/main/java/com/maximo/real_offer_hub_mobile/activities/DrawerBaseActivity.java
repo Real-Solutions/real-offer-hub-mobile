@@ -40,6 +40,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.open, R.string.close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
     }
 
     @Override
@@ -55,6 +56,11 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
 
             case R.id.my_listings:
                 startActivity(new Intent(this, MyListingsActivity.class));
+                overridePendingTransition(0,0);
+                break;
+
+            case R.id.add_property:
+                startActivity(new Intent(this, AddPropertyActivity.class));
                 overridePendingTransition(0,0);
                 break;
 

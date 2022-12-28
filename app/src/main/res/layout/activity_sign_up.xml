@@ -15,6 +15,7 @@
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpActivityTextViewSignUp" />
 
@@ -27,6 +28,7 @@
         android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpActivityTextEditName" />
 
@@ -36,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
+        android:minHeight="48dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpActivityTextEditEmail" />
@@ -49,6 +52,7 @@
         android:ems="10"
         android:hint="password"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpActivitySpinnerRole" />
 
@@ -57,16 +61,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="160dp"
         android:text="SignUp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SignUpActivityeditTextTextPassword" />
 
     <TextView
         android:id="@+id/SignUpActivityTextViewSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="170dp"
         android:text="Sign Up"
         android:textSize="20sp"
