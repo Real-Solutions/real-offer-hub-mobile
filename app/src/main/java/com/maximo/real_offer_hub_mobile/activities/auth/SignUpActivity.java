@@ -1,5 +1,7 @@
 package com.maximo.real_offer_hub_mobile.activities.auth;
 
+import static com.amplifyframework.core.Amplify.Auth;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,8 +11,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.amplifyframework.auth.AuthUserAttributeKey;
+import com.amplifyframework.auth.cognito.result.AWSCognitoAuthSignOutResult;
+import com.amplifyframework.auth.cognito.result.GlobalSignOutError;
+import com.amplifyframework.auth.cognito.result.HostedUIError;
+import com.amplifyframework.auth.cognito.result.RevokeTokenError;
 import com.amplifyframework.auth.options.AuthSignUpOptions;
 import com.amplifyframework.core.Amplify;
+import com.maximo.real_offer_hub_mobile.MainActivity;
 import com.maximo.real_offer_hub_mobile.R;
 import com.maximo.real_offer_hub_mobile.activities.DrawerBaseActivity;
 import com.maximo.real_offer_hub_mobile.databinding.ActivitySignUpBinding;

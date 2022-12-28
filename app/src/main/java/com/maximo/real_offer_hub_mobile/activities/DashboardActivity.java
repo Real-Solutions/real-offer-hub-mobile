@@ -31,6 +31,7 @@ public class DashboardActivity extends DrawerBaseActivity {
         setContentView(activityDashboardBinding.getRoot());
         allocateActivityTitle("Dashboard");
 
+
         getData();
         recyclerView = findViewById(R.id.recyclerView);
         Adapter adapter = new Adapter(modelList);
