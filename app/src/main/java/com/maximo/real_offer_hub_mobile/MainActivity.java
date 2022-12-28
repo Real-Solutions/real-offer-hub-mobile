@@ -1,11 +1,20 @@
 package com.maximo.real_offer_hub_mobile;
 
+import static com.amplifyframework.core.Amplify.Auth;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
+import com.amplifyframework.auth.cognito.result.AWSCognitoAuthSignOutResult;
+import com.amplifyframework.auth.cognito.result.GlobalSignOutError;
+import com.amplifyframework.auth.cognito.result.HostedUIError;
+import com.amplifyframework.auth.cognito.result.RevokeTokenError;
+import com.amplifyframework.core.Amplify;
 import com.maximo.real_offer_hub_mobile.activities.DataTest;
 
 
@@ -22,6 +31,7 @@ public class MainActivity extends DrawerBaseActivity {
         activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(activityMainBinding.getRoot());
         allocateActivityTitle("Main Activity");
+
     }
 
     @Override
@@ -30,6 +40,24 @@ public class MainActivity extends DrawerBaseActivity {
 //        setupButtons();
     }
 
+
+
+
+
+//        Amplify.Auth.getCurrentUser(
+//                success->{
+//                    String username = success.getUsername();
+//                    Log.i(TAG, "Username is: " + username);
+//                    R.id.login.setVisibility(View.GONE);
+//                    signUp.setVisibility(View.GONE);
+//                },
+//                failure->{
+//                    R.id.logout.setVisibility(View.GONE);
+//                }
+//        );
+    }
+
+
 //    public void setupButtons(){
 //
 //        Button goToDataTestButton = this.findViewById(R.id.MainActivityButtonDataTest);
@@ -37,4 +65,6 @@ public class MainActivity extends DrawerBaseActivity {
 //            startActivity(new Intent(this, DataTest.class))
 //        );
 //    }
-}
+
+//}
+

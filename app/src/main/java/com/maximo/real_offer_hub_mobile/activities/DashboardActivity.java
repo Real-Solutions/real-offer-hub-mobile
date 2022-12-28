@@ -2,9 +2,12 @@ package com.maximo.real_offer_hub_mobile.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 
 import com.maximo.real_offer_hub_mobile.R;
+import com.maximo.real_offer_hub_mobile.activities.auth.ConfirmationActivity;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityDashboardBinding;
 
 public class DashboardActivity extends DrawerBaseActivity {
@@ -17,5 +20,15 @@ public class DashboardActivity extends DrawerBaseActivity {
         activityDashboardBinding = ActivityDashboardBinding.inflate(getLayoutInflater());
         setContentView(activityDashboardBinding.getRoot());
         allocateActivityTitle("Dashboard");
+        setupVerifyCodeButton();
+    }
+
+    public void setupVerifyCodeButton(){
+
+        Button verifyCodeButton = this.findViewById(R.id.DashboardActivityButtonVerifyCode);
+        verifyCodeButton.setOnClickListener(view -> {
+            Intent goToConfirmationActivity = new Intent(this, ConfirmationActivity.class);
+            startActivity(goToConfirmationActivity);
+        });
     }
 }

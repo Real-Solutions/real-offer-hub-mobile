@@ -204,6 +204,7 @@ query GetProperty($id: ID!) {
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -296,6 +297,7 @@ query GetOffer($id: ID!) {
     responseDateString
     closeOfEscrowString
     responseTimeString
+    expanded
     messages {
       items {
         id
@@ -370,6 +372,7 @@ query ListOffers(
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }
@@ -427,6 +430,7 @@ query GetMessage($id: ID!) {
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }
@@ -490,6 +494,7 @@ query ListMessages(
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -661,6 +666,7 @@ query OffersByPropertyIdAndOfferPrice(
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }
@@ -733,6 +739,7 @@ query MessagesByOfferIdAndDate(
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
