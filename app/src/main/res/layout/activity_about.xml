@@ -6,4 +6,195 @@
     android:layout_height="match_parent"
     tools:context=".activities.AboutActivity">
 
+    <ImageView
+        android:id="@+id/AboutImageViewAustin"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutImageViewMax"
+        tools:srcCompat="@drawable/austin" />
+
+    <ImageView
+        android:id="@+id/AboutImageViewMax"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewTheTeam"
+        tools:srcCompat="@drawable/maximo" />
+
+    <ImageView
+        android:id="@+id/AboutImageViewMat"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutImageViewAustin"
+        tools:srcCompat="@drawable/mat" />
+
+    <TextView
+        android:id="@+id/AboutTextViewAboutOfferHubMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="About Offer Hub Mobile"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/AboutTextViewVersionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="32dp"
+        android:text="Version: 1.0"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAboutOfferHubMobile" />
+
+    <TextView
+        android:id="@+id/AboutTextViewLastUpdatedDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="8dp"
+        android:text="Last Updated: 12/30/22"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewVersionNumber" />
+
+    <TextView
+        android:id="@+id/AboutTextViewCompanyName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="32dp"
+        android:text="Real Solutions LLC"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewLastUpdatedDate" />
+
+    <TextView
+        android:id="@+id/AboutTextViewCompanyLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="105dp"
+        android:layout_marginTop="8dp"
+        android:text="Phoenix, AZ"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewCompanyName" />
+
+    <TextView
+        android:id="@+id/AboutTextViewTheTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="The Team"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewCompanyLocation" />
+
+    <TextView
+        android:id="@+id/AboutTextViewMaximoName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Maximo VincenteMejia"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMax"
+        app:layout_constraintTop_toTopOf="@+id/AboutImageViewMax" />
+
+    <TextView
+        android:id="@+id/AboutTextViewAustinName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Austin Limanek"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewAustin"
+        app:layout_constraintTop_toTopOf="@+id/AboutImageViewAustin" />
+
+    <TextView
+        android:id="@+id/AboutTextViewMathewName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Mathew Torres"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMat"
+        app:layout_constraintTop_toTopOf="@+id/AboutImageViewMat" />
+
+    <TextView
+        android:id="@+id/AboutTextViewMaxTitleSoftwareDeveloper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Software Developer"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMax"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMaximoName" />
+
+    <TextView
+        android:id="@+id/AboutTextViewAustinTitleSoftwareEngineer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Software Engineer"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewAustin"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAustinName" />
+
+    <TextView
+        android:id="@+id/AboutTextViewSoftwareDeveloper"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="Software Developer"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMat"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMathewName" />
+
+    <TextView
+        android:id="@+id/AboutTextViewTitleCOO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="COO"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMax"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMaxTitleSoftwareDeveloper" />
+
+    <TextView
+        android:id="@+id/AboutTextViewTitleCTO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="CTO"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewAustin"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAustinTitleSoftwareEngineer" />
+
+    <TextView
+        android:id="@+id/AboutTextViewTitleCEO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:text="CEO"
+        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMat"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewSoftwareDeveloper" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

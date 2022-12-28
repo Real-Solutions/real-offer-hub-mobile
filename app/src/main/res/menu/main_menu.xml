@@ -16,6 +16,11 @@
             android:title="Add Property" />
 
         <item
+            android:id="@+id/offer_form"
+            android:icon="@drawable/ic_baseline_add_home_24"
+            android:title="Submit Offer" />
+
+        <item
             android:id="@+id/clients"
             android:icon="@drawable/ic_baseline_person_search_24"
             android:title="Clients" />
