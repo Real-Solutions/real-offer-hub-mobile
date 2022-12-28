@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.amplifyframework.core.Amplify;
 import com.maximo.real_offer_hub_mobile.MainActivity;
 import com.maximo.real_offer_hub_mobile.R;
+import com.maximo.real_offer_hub_mobile.activities.DashboardActivity;
 import com.maximo.real_offer_hub_mobile.activities.DrawerBaseActivity;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityLoginBinding;
 
@@ -40,7 +41,7 @@ public class LoginActivity extends DrawerBaseActivity {
                     userPassword,
                     success -> {
                         Log.i(TAG, "Login successful: " + success);
-                        Intent goToDashboardIntent = new Intent(this, MainActivity.class);
+                        Intent goToDashboardIntent = new Intent(this, DashboardActivity.class);
                         startActivity(goToDashboardIntent);
                     },
                     failure -> {
