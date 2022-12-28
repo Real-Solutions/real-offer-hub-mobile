@@ -1,45 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item android:id="@+id/home"
+        <item
+            android:id="@+id/home"
             android:icon="@drawable/ic_baseline_home_24"
-            android:title="Home"
-            />
-        <item android:id="@+id/my_listings"
+            android:title="Home" />
+
+        <item
+            android:id="@+id/my_listings"
             android:icon="@drawable/ic_baseline_info_24"
-            android:title="My Listings"
-            />
-        <item android:id="@+id/clients"
+            android:title="My Listings" />
+        <item
+            android:id="@+id/add_property"
+            android:icon="@drawable/ic_baseline_add_home_24"
+            android:title="Add Property" />
+
+        <item
+            android:id="@+id/clients"
             android:icon="@drawable/ic_baseline_person_search_24"
-            android:title="Clients"
-            />
-        <item android:id="@+id/user_profile"
+            android:title="Clients" />
+        <item
+            android:id="@+id/user_profile"
             android:icon="@drawable/ic_baseline_person_24"
-            android:title="User Profile"
-            />
-        <item android:id="@+id/settings"
+            android:title="User Profile" />
+        <item
+            android:id="@+id/settings"
             android:icon="@drawable/ic_baseline_settings_24"
-            android:title="Settings"
-            />
-        <item android:id="@+id/about"
+            android:title="Settings" />
+        <item
+            android:id="@+id/about"
             android:icon="@drawable/ic_baseline_info_24"
-            android:title="About"
-            />
-        <item android:id="@+id/support"
+            android:title="About" />
+        <item
+            android:id="@+id/support"
             android:icon="@drawable/ic_baseline_help_24"
-            android:title="Support"
-            />
-        <item android:id="@+id/signup"
+            android:title="Support" />
+        <item
+            android:id="@+id/signup"
             android:icon="@drawable/ic_baseline_how_to_reg_24"
-            android:title="Sign Up"
-            />
-        <item android:id="@+id/login"
+            android:title="Sign Up" />
+        <item
+            android:id="@+id/login"
             android:icon="@drawable/ic_baseline_login_24"
-            android:title="Login"
-            />
-        <item android:id="@+id/logout"
+            android:title="Login" />
+        <item
+            android:id="@+id/logout"
             android:icon="@drawable/ic_baseline_logout_24"
-            android:title="Logout"
-            />
+            android:title="Logout" />
     </group>
 </menu>

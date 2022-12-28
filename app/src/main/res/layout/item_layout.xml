@@ -13,7 +13,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@drawable/blue_gradient">
 
 
             <TextView
@@ -21,11 +22,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
+                android:paddingBottom="18dp"
                 android:text="Property"
+                android:textColor="#fff"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/expandablelayout"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -42,9 +46,10 @@
                     android:id="@+id/item_layoutTextViewDownPaymentTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginTop="16dp"
                     android:text="Down Payment:"
+                    android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +61,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="Down Payment Value"
+                    android:textColor="#fff"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewDownPaymentTitle"
                     app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewDownPaymentTitle"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewDownPaymentTitle" />
@@ -64,9 +70,10 @@
                     android:id="@+id/item_layoutTextViewEarnestMoneyTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="Earnest Money:"
+                    android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +85,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:text="Earnest Money Value"
+                    android:textColor="#fff"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewEarnestMoneyTitle"
                     app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewEarnestMoneyTitle"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewEarnestMoneyTitle" />
@@ -86,9 +94,10 @@
                     android:id="@+id/item_layoutTextViewLoanTypeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="Loan Type:"
+                    android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -100,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="56dp"
                     android:text="Loan Type Value"
+                    android:textColor="#fff"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewLoanTypeTitle"
                     app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewLoanTypeTitle"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewLoanTypeTitle" />
@@ -108,9 +118,10 @@
                     android:id="@+id/item_layoutTextViewBuyersAgentTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="Buyer's Agent:"
+                    android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -122,6 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
                     android:text="Buyer's Agent Value"
+                    android:textColor="#fff"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewBuyersAgentTitle"
                     app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewBuyersAgentTitle"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewBuyersAgentTitle"
@@ -131,9 +143,10 @@
                     android:id="@+id/item_layoutTextViewResponseDateTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="Response Date:"
+                    android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -145,6 +158,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:text="Response Date Value"
+                    android:textColor="#fff"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewResponseDateTitle"
                     app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewResponseDateTitle"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewResponseDateTitle" />
@@ -153,9 +167,10 @@
                     android:id="@+id/item_layoutTextViewResponseTimeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="Response Time:"
+                    android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -167,6 +182,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:text="Response Time Value"
+                    android:textColor="#fff"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewResponseTimeTitle"
                     app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewResponseTimeTitle"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewResponseTimeTitle" />
@@ -175,9 +191,10 @@
                     android:id="@+id/item_layoutTextViewCloseOfEscrowTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
+                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
                     android:text="Close of Escrow:"
+                    android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
@@ -189,6 +206,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:text="Close of Escrow Value"
+                    android:textColor="#fff"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewCloseOfEscrowTitle"
                     app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewCloseOfEscrowTitle"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewCloseOfEscrowTitle" />
@@ -198,11 +216,24 @@
                     android:layout_width="280dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
+                    android:layout_marginBottom="16dp"
                     android:text="See More Offer Details"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewCloseOfEscrowTitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="45dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/icon_background_white"
+                app:layout_constraintBottom_toTopOf="@+id/expandablelayout"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_baseline_house_24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.AddPropertyActivity">
+
+    <TextView
+        android:id="@+id/AddPropertyActivityTextViewAddProperty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="Add Property"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/AddPropertyTextEditPropertyAddress"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Property Address"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyActivityTextViewAddProperty" />
+
+    <EditText
+        android:id="@+id/AddPropertyTextEditListPrice"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="List Price"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyTextEditPropertyAddress" />
+
+    <EditText
+        android:id="@+id/AddPropertyDateInitalLististDate"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Inital List Date"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyTextEditListPrice" />
+
+    <EditText
+        android:id="@+id/AddPropertyTextEditRooms"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Rooms"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddPropertyTextEditBathrooms"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyDateInitalLististDate" />
+
+    <EditText
+        android:id="@+id/AddPropertyTextEditBathrooms"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Bathrooms"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AddPropertyTextEditRooms"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyDateInitalLististDate" />
+
+    <EditText
+        android:id="@+id/AddPropertyTextEditSquareFootage"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Sq. Ft."
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toStartOf="@+id/AddPropertyTextEditYearBuilt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyTextEditRooms" />
+
+    <EditText
+        android:id="@+id/AddPropertyTextEditYearBuilt"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Year Built"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/AddPropertyTextEditSquareFootage"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyTextEditBathrooms" />
+
+    <Button
+        android:id="@+id/AddPropertyBtnAddProperty"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:text="Add Property"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddPropertyTextEditSquareFootage" />
+</androidx.constraintlayout.widget.ConstraintLayout>

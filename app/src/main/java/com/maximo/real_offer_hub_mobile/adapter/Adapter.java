@@ -5,18 +5,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.amplifyframework.datastore.generated.model.Offer;
 import com.maximo.real_offer_hub_mobile.R;
+import com.maximo.real_offer_hub_mobile.activities.ModelB;
+
 
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
     private static final String TAG ="Adapter";
-    List<Offer> modelList;
+    List<ModelB> modelList;
+
+    public Adapter(List<ModelB> modelList) {
+        this.modelList = modelList;
+    }
 
     @Override
     public Adapter.ItemVH onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -27,6 +32,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
     @Override
     public void onBindViewHolder(Adapter.ItemVH holder, int position) {
 
+        ModelB modelB = modelList.get(position);
+        holder.propertyView.setText(modelB.getProperty());
+        holder.earnestMoneyView.setText(modelB.getEarnestMoney());
+        holder.loanTypeView.setText(modelB.getLoanType());
+        holder.buyersAgentView.setText(modelB.getBuyersAgent());
+        holder.responseDateView.setText(modelB.getResponseDate());
+        holder.responseTimeView.setText(modelB.getResponseTime());
+        holder.closeOfEscrowView.setText(modelB.getCloseOfEscrow());
+        boolean isExpanded = modelList.get(position).isExpanded();
+        holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE:View.GONE);
+
     }
 
     @Override
@@ -35,7 +51,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
     }
 
     class ItemVH extends RecyclerView.ViewHolder{
-        private static final String TAG="Item";
+        private static final String TAG = "Item";
         TextView propertyView, earnestMoneyView, loanTypeView, buyersAgentView, responseDateView, responseTimeView, closeOfEscrowView;
         ConstraintLayout expandableLayout;
         public ItemVH(View itemView) {
@@ -50,7 +66,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
             expandableLayout = itemView.findViewById(R.id.expandablelayout);
 
             propertyView.setOnClickListener(view -> {
-                Offer offer = modelList.get(getAdapterPosition());
+                ModelB modelB = modelList.get(getAdapterPosition());
+                modelB.setExpanded(!modelB.isExpanded());
+                notifyItemChanged(getAdapterPosition());
             });
         }
     }
