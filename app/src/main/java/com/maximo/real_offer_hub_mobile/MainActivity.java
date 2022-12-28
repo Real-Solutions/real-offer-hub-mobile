@@ -43,6 +43,7 @@ public class MainActivity extends DrawerBaseActivity {
 
 
 
+
 //        Amplify.Auth.getCurrentUser(
 //                success->{
 //                    String username = success.getUsername();
@@ -56,6 +57,7 @@ public class MainActivity extends DrawerBaseActivity {
 //        );
     }
 
+
 //    public void setupButtons(){
 //
 //        Button goToDataTestButton = this.findViewById(R.id.MainActivityButtonDataTest);
@@ -63,4 +65,6 @@ public class MainActivity extends DrawerBaseActivity {
 //            startActivity(new Intent(this, DataTest.class))
 //        );
 //    }
+
 //}
+
