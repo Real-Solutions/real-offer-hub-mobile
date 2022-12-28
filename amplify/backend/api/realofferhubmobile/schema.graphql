@@ -69,6 +69,7 @@ type Offer @model @auth(rules: [{allow: public}]){
     responseDateString: String!
     closeOfEscrowString: String!
     responseTimeString: String!
+    expanded: Boolean
     messages: [Message] @hasMany(indexName: "byOffer", fields:["id"])
 
     propertyId: ID! @index(name: "byProperty", sortKeyFields: ["offerPrice"])

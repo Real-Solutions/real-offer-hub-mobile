@@ -350,6 +350,7 @@ mutation CreateProperty(
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -422,6 +423,7 @@ mutation UpdateProperty(
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -494,6 +496,7 @@ mutation DeleteProperty(
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -554,6 +557,7 @@ mutation CreateOffer(
     responseDateString
     closeOfEscrowString
     responseTimeString
+    expanded
     messages {
       items {
         id
@@ -626,6 +630,7 @@ mutation UpdateOffer(
     responseDateString
     closeOfEscrowString
     responseTimeString
+    expanded
     messages {
       items {
         id
@@ -698,6 +703,7 @@ mutation DeleteOffer(
     responseDateString
     closeOfEscrowString
     responseTimeString
+    expanded
     messages {
       items {
         id
@@ -775,6 +781,7 @@ mutation CreateMessage(
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }
@@ -836,6 +843,7 @@ mutation UpdateMessage(
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }
@@ -897,6 +905,7 @@ mutation DeleteMessage(
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }

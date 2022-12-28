@@ -106,4 +106,5 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
             getSupportActionBar().setTitle(titleString);
         }
     }
+
 }

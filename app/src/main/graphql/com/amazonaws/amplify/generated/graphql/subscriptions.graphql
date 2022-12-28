@@ -320,6 +320,7 @@ subscription OnCreateProperty($filter: ModelSubscriptionPropertyFilterInput) {
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -389,6 +390,7 @@ subscription OnUpdateProperty($filter: ModelSubscriptionPropertyFilterInput) {
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -458,6 +460,7 @@ subscription OnDeleteProperty($filter: ModelSubscriptionPropertyFilterInput) {
         responseDateString
         closeOfEscrowString
         responseTimeString
+        expanded
         propertyId
         createdAt
         updatedAt
@@ -515,6 +518,7 @@ subscription OnCreateOffer($filter: ModelSubscriptionOfferFilterInput) {
     responseDateString
     closeOfEscrowString
     responseTimeString
+    expanded
     messages {
       items {
         id
@@ -584,6 +588,7 @@ subscription OnUpdateOffer($filter: ModelSubscriptionOfferFilterInput) {
     responseDateString
     closeOfEscrowString
     responseTimeString
+    expanded
     messages {
       items {
         id
@@ -653,6 +658,7 @@ subscription OnDeleteOffer($filter: ModelSubscriptionOfferFilterInput) {
     responseDateString
     closeOfEscrowString
     responseTimeString
+    expanded
     messages {
       items {
         id
@@ -727,6 +733,7 @@ subscription OnCreateMessage($filter: ModelSubscriptionMessageFilterInput) {
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }
@@ -785,6 +792,7 @@ subscription OnUpdateMessage($filter: ModelSubscriptionMessageFilterInput) {
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }
@@ -843,6 +851,7 @@ subscription OnDeleteMessage($filter: ModelSubscriptionMessageFilterInput) {
       responseDateString
       closeOfEscrowString
       responseTimeString
+      expanded
       messages {
         nextToken
       }

@@ -53,6 +53,7 @@ public final class Offer implements Model {
   public static final QueryField RESPONSE_DATE_STRING = field("Offer", "responseDateString");
   public static final QueryField CLOSE_OF_ESCROW_STRING = field("Offer", "closeOfEscrowString");
   public static final QueryField RESPONSE_TIME_STRING = field("Offer", "responseTimeString");
+  public static final QueryField EXPANDED = field("Offer", "expanded");
   public static final QueryField PROPERTY = field("Offer", "propertyId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String buyersFirstName;
@@ -79,6 +80,7 @@ public final class Offer implements Model {
   private final @ModelField(targetType="String", isRequired = true) String responseDateString;
   private final @ModelField(targetType="String", isRequired = true) String closeOfEscrowString;
   private final @ModelField(targetType="String", isRequired = true) String responseTimeString;
+  private final @ModelField(targetType="Boolean") Boolean expanded;
   private final @ModelField(targetType="Message") @HasMany(associatedWith = "offer", type = Message.class) List<Message> messages = null;
   private final @ModelField(targetType="Property") @BelongsTo(targetName = "propertyId", targetNames = {"propertyId"}, type = Property.class) Property property;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
@@ -187,6 +189,10 @@ public final class Offer implements Model {
       return responseTimeString;
   }
   
+  public Boolean getExpanded() {
+      return expanded;
+  }
+  
   public List<Message> getMessages() {
       return messages;
   }
@@ -203,7 +209,7 @@ public final class Offer implements Model {
       return updatedAt;
   }
   
-  private Offer(String id, String buyersFirstName, String buyersLastName, Double offerPrice, Double ernestMoneyAmount, Double downPayment, Temporal.Date closeOfEscrow, String concessions, String loanType, Boolean contingentBuyer, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, Boolean escalation, Temporal.Date responseDate, Temporal.Time responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String contingentBuyerString, String responseDateString, String closeOfEscrowString, String responseTimeString, Property property) {
+  private Offer(String id, String buyersFirstName, String buyersLastName, Double offerPrice, Double ernestMoneyAmount, Double downPayment, Temporal.Date closeOfEscrow, String concessions, String loanType, Boolean contingentBuyer, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, Boolean escalation, Temporal.Date responseDate, Temporal.Time responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String contingentBuyerString, String responseDateString, String closeOfEscrowString, String responseTimeString, Boolean expanded, Property property) {
     this.id = id;
     this.buyersFirstName = buyersFirstName;
     this.buyersLastName = buyersLastName;
@@ -229,6 +235,7 @@ public final class Offer implements Model {
     this.responseDateString = responseDateString;
     this.closeOfEscrowString = closeOfEscrowString;
     this.responseTimeString = responseTimeString;
+    this.expanded = expanded;
     this.property = property;
   }
   
@@ -265,6 +272,7 @@ public final class Offer implements Model {
               ObjectsCompat.equals(getResponseDateString(), offer.getResponseDateString()) &&
               ObjectsCompat.equals(getCloseOfEscrowString(), offer.getCloseOfEscrowString()) &&
               ObjectsCompat.equals(getResponseTimeString(), offer.getResponseTimeString()) &&
+              ObjectsCompat.equals(getExpanded(), offer.getExpanded()) &&
               ObjectsCompat.equals(getProperty(), offer.getProperty()) &&
               ObjectsCompat.equals(getCreatedAt(), offer.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), offer.getUpdatedAt());
@@ -299,6 +307,7 @@ public final class Offer implements Model {
       .append(getResponseDateString())
       .append(getCloseOfEscrowString())
       .append(getResponseTimeString())
+      .append(getExpanded())
       .append(getProperty())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -335,6 +344,7 @@ public final class Offer implements Model {
       .append("responseDateString=" + String.valueOf(getResponseDateString()) + ", ")
       .append("closeOfEscrowString=" + String.valueOf(getCloseOfEscrowString()) + ", ")
       .append("responseTimeString=" + String.valueOf(getResponseTimeString()) + ", ")
+      .append("expanded=" + String.valueOf(getExpanded()) + ", ")
       .append("property=" + String.valueOf(getProperty()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -357,6 +367,7 @@ public final class Offer implements Model {
   public static Offer justId(String id) {
     return new Offer(
       id,
+      null,
       null,
       null,
       null,
@@ -411,6 +422,7 @@ public final class Offer implements Model {
       responseDateString,
       closeOfEscrowString,
       responseTimeString,
+      expanded,
       property);
   }
   public interface BuyersFirstNameStep {
@@ -536,6 +548,7 @@ public final class Offer implements Model {
   public interface BuildStep {
     Offer build();
     BuildStep id(String id);
+    BuildStep expanded(Boolean expanded);
     BuildStep property(Property property);
   }
   
@@ -566,6 +579,7 @@ public final class Offer implements Model {
     private String responseDateString;
     private String closeOfEscrowString;
     private String responseTimeString;
+    private Boolean expanded;
     private Property property;
     @Override
      public Offer build() {
@@ -597,6 +611,7 @@ public final class Offer implements Model {
           responseDateString,
           closeOfEscrowString,
           responseTimeString,
+          expanded,
           property);
     }
     
@@ -769,6 +784,12 @@ public final class Offer implements Model {
     }
     
     @Override
+     public BuildStep expanded(Boolean expanded) {
+        this.expanded = expanded;
+        return this;
+    }
+    
+    @Override
      public BuildStep property(Property property) {
         this.property = property;
         return this;
@@ -786,7 +807,7 @@ public final class Offer implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String buyersFirstName, String buyersLastName, Double offerPrice, Double ernestMoneyAmount, Double downPayment, Temporal.Date closeOfEscrow, String concessions, String loanType, Boolean contingentBuyer, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, Boolean escalation, Temporal.Date responseDate, Temporal.Time responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String contingentBuyerString, String responseDateString, String closeOfEscrowString, String responseTimeString, Property property) {
+    private CopyOfBuilder(String id, String buyersFirstName, String buyersLastName, Double offerPrice, Double ernestMoneyAmount, Double downPayment, Temporal.Date closeOfEscrow, String concessions, String loanType, Boolean contingentBuyer, String personalPropertyRequested, String hoa, String homeWarranty, String inspectionPeriod, Boolean escalation, Temporal.Date responseDate, Temporal.Time responseTime, String additionalTermsAndConditions, String priceString, String downPaymentString, String ernestMoneyAmountString, String contingentBuyerString, String responseDateString, String closeOfEscrowString, String responseTimeString, Boolean expanded, Property property) {
       super.id(id);
       super.buyersFirstName(buyersFirstName)
         .buyersLastName(buyersLastName)
@@ -812,6 +833,7 @@ public final class Offer implements Model {
         .responseDateString(responseDateString)
         .closeOfEscrowString(closeOfEscrowString)
         .responseTimeString(responseTimeString)
+        .expanded(expanded)
         .property(property);
     }
     
@@ -933,6 +955,11 @@ public final class Offer implements Model {
     @Override
      public CopyOfBuilder responseTimeString(String responseTimeString) {
       return (CopyOfBuilder) super.responseTimeString(responseTimeString);
+    }
+    
+    @Override
+     public CopyOfBuilder expanded(Boolean expanded) {
+      return (CopyOfBuilder) super.expanded(expanded);
     }
     
     @Override
