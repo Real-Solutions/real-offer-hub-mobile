@@ -10,10 +10,10 @@
         android:id="@+id/AboutImageViewAustin"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/austin"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutImageViewMax"
         tools:srcCompat="@drawable/austin" />
 
@@ -21,99 +21,71 @@
         android:id="@+id/AboutImageViewMax"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/maximo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewTheTeam"
+        app:layout_constraintEnd_toStartOf="@+id/divider13"
+        app:layout_constraintTop_toBottomOf="@+id/divider12"
         tools:srcCompat="@drawable/maximo" />
 
     <ImageView
         android:id="@+id/AboutImageViewMat"
         android:layout_width="72dp"
         android:layout_height="72dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
         android:src="@drawable/mat"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutImageViewAustin"
         tools:srcCompat="@drawable/mat" />
 
     <TextView
-        android:id="@+id/AboutTextViewAboutOfferHubMobile"
-        android:layout_width="match_parent"
+        android:id="@+id/AboutTextViewVersionNumberTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:text="About Offer Hub Mobile"
-        android:padding="10dp"
-        android:textAlignment="center"
-        android:background="@drawable/blue_gradient"
-        android:textColor="@color/white"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Version:"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/divider10"
+        app:layout_constraintTop_toBottomOf="@+id/divider9" />
 
     <TextView
-        android:id="@+id/AboutTextViewVersionNumber"
+        android:id="@+id/AboutTextViewLastUpdatedDateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Version: 1.0"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAboutOfferHubMobile" />
-
-    <TextView
-        android:id="@+id/AboutTextViewLastUpdatedDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Last Updated: 12/30/22"
+        android:layout_marginEnd="16dp"
+        android:text="Last Updated:"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewVersionNumber" />
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/divider10"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewVersionNumberTitle" />
 
     <TextView
-        android:id="@+id/AboutTextViewCompanyName"
+        android:id="@+id/AboutTextViewCompanyNameValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
         android:text="Real Solutions LLC"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewLastUpdatedDate" />
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewCompanyTitle"
+        app:layout_constraintStart_toEndOf="@+id/divider10"
+        app:layout_constraintTop_toTopOf="@+id/AboutTextViewCompanyTitle" />
 
     <TextView
         android:id="@+id/AboutTextViewCompanyLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:text="Phoenix, AZ"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewCompanyName" />
-
-    <TextView
-        android:id="@+id/AboutTextViewTheTeam"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="The Team"
-        android:padding="10dp"
-        android:textAlignment="center"
-        android:background="@drawable/blue_gradient"
-        android:textColor="@color/white"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewCompanyLocation" />
+        app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewLocation"
+        app:layout_constraintStart_toEndOf="@+id/divider10"
+        app:layout_constraintTop_toTopOf="@+id/AboutTextViewLocation" />
 
     <TextView
         android:id="@+id/AboutTextViewMaximoName"
@@ -121,9 +93,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Maximo VincenteMejia"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMax"
+        app:layout_constraintBottom_toTopOf="@+id/AboutTextViewMaxTitleSoftwareDeveloper"
+        app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toTopOf="@+id/AboutImageViewMax" />
 
     <TextView
@@ -131,10 +104,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
         android:text="Austin Limanek"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewAustin"
+        app:layout_constraintBottom_toTopOf="@+id/AboutTextViewAustinTitleSoftwareEngineer"
+        app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toTopOf="@+id/AboutImageViewAustin" />
 
     <TextView
@@ -142,10 +117,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:text="Mathew Torres"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMat"
+        app:layout_constraintBottom_toTopOf="@+id/AboutTextViewSoftwareDeveloper"
+        app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toTopOf="@+id/AboutImageViewMat" />
 
     <TextView
@@ -153,9 +130,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
         android:text="Software Developer"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMax"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMax"
+        app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMaximoName" />
 
     <TextView
@@ -163,9 +140,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
         android:text="Software Engineer"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewAustin"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewAustin"
+        app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAustinName" />
 
     <TextView
@@ -173,39 +150,171 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
         android:text="Software Developer"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMat"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMat"
+        app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMathewName" />
 
     <TextView
         android:id="@+id/AboutTextViewTitleCOO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
         android:text="COO"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMax"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMaxTitleSoftwareDeveloper" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMax"
+        app:layout_constraintEnd_toStartOf="@+id/AboutImageViewMax"
+        app:layout_constraintTop_toTopOf="@+id/AboutImageViewMax" />
 
     <TextView
         android:id="@+id/AboutTextViewTitleCTO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
         android:text="CTO"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewAustin"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAustinTitleSoftwareEngineer" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewAustin"
+        app:layout_constraintEnd_toStartOf="@+id/AboutImageViewAustin"
+        app:layout_constraintTop_toTopOf="@+id/AboutImageViewAustin" />
 
     <TextView
         android:id="@+id/AboutTextViewTitleCEO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
         android:text="CEO"
-        app:layout_constraintStart_toEndOf="@+id/AboutImageViewMat"
-        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewSoftwareDeveloper" />
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMat"
+        app:layout_constraintEnd_toStartOf="@+id/AboutImageViewMat"
+        app:layout_constraintTop_toTopOf="@+id/AboutImageViewMat" />
+
+    <TextView
+        android:id="@+id/AboutTextViewAboutTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="About Offer Hub Mobile"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider9"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAboutTitle" />
+
+    <View
+        android:id="@+id/divider10"
+        android:layout_width="1dp"
+        android:layout_height="180dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider9" />
+
+    <TextView
+        android:id="@+id/AboutTextViewCompanyTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Company:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/divider10"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewLastUpdatedDateTitle" />
+
+    <TextView
+        android:id="@+id/AboutTextViewLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Location:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/divider10"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewCompanyTitle" />
+
+    <TextView
+        android:id="@+id/AboutTextViewVersionValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="1.0"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewVersionNumberTitle"
+        app:layout_constraintStart_toEndOf="@+id/divider10"
+        app:layout_constraintTop_toTopOf="@+id/AboutTextViewVersionNumberTitle" />
+
+    <TextView
+        android:id="@+id/AboutTextViewLastUpdatedDateValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="December 2022"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewLastUpdatedDateTitle"
+        app:layout_constraintStart_toEndOf="@+id/divider10"
+        app:layout_constraintTop_toTopOf="@+id/AboutTextViewLastUpdatedDateTitle" />
+
+    <View
+        android:id="@+id/divider11"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider10" />
+
+    <TextView
+        android:id="@+id/AboutTextViewTheTeam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="The Team"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider10" />
+
+    <View
+        android:id="@+id/divider12"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewTheTeam" />
+
+    <View
+        android:id="@+id/divider13"
+        android:layout_width="1dp"
+        android:layout_height="265dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewTheTeam" />
+
+    <View
+        android:id="@+id/divider14"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider13" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

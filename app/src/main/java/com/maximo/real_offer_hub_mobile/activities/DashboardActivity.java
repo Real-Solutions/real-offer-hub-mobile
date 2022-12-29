@@ -13,11 +13,15 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Button;
 
+
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Client;
 import com.amplifyframework.datastore.generated.model.Property;
 import com.amplifyframework.datastore.generated.model.User;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import com.maximo.real_offer_hub_mobile.R;
 import com.maximo.real_offer_hub_mobile.activities.auth.LoginActivity;
 import com.maximo.real_offer_hub_mobile.activities.auth.SignUpActivity;
@@ -50,6 +54,7 @@ public class DashboardActivity extends DrawerBaseActivity {
         recyclerView.setAdapter(adapter);
 
         dataTestButton();
+
         getAuthUser();
     }
 
@@ -100,6 +105,9 @@ public class DashboardActivity extends DrawerBaseActivity {
 
     public void createDynamoUser(String email, String cognitoId){
 
+
+        addPropertyButton();
+
     }
 
     public void dataTestButton(){
@@ -115,6 +123,14 @@ public class DashboardActivity extends DrawerBaseActivity {
         modelList.add(new ModelB("1675 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
         modelList.add(new ModelB("1676 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
         modelList.add(new ModelB("1677 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
+    }
+
+    public void addPropertyButton(){
+        FloatingActionButton addProperty = DashboardActivity.this.findViewById(R.id.DashboardFloatingActionBtnAddProperty);
+        addProperty.setOnClickListener(view -> {
+            Intent goToAddPropertyIntent = new Intent(DashboardActivity.this, AddPropertyActivity.class);
+            startActivity(goToAddPropertyIntent);
+        });
     }
 
 }
