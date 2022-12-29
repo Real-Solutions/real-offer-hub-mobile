@@ -57,7 +57,6 @@ public class SignUpActivity extends DrawerBaseActivity {
                         Intent goToVerifyActivity = new Intent(this, ConfirmationActivity.class);
                         goToVerifyActivity.putExtra(SIGNUP_EMAIL_TAG, userEmail);
 
-                        saveNewUser(userEmail);
 
                         startActivity(goToVerifyActivity);
                     },
@@ -69,18 +68,6 @@ public class SignUpActivity extends DrawerBaseActivity {
         });
     }
 
-    public void saveNewUser(String userEmail){
-        User user = User.builder()
-                .email(userEmail)
-                .userType(userType)
-                .build();
-
-        Amplify.API.mutate(
-                ModelMutation.create(user),
-                success -> Log.i(TAG, "Successfully added a new user to DynamoDB with the email of: " + userEmail),
-                failure -> Log.e(TAG, "Failed signup attempt to DynamoDB", failure)
-        );
-    }
 
     public void setUpUserType(){
         Amplify.API.query(

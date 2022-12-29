@@ -14,12 +14,14 @@ import android.util.Log;
 import android.widget.Button;
 
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Client;
 import com.amplifyframework.datastore.generated.model.Property;
 import com.amplifyframework.datastore.generated.model.User;
 
+import com.amplifyframework.datastore.generated.model.UserType;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.maximo.real_offer_hub_mobile.R;
@@ -30,6 +32,10 @@ import com.maximo.real_offer_hub_mobile.databinding.ActivityDashboardBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.CompletableFuture;
 
 public class DashboardActivity extends DrawerBaseActivity {
     public static final String TAG = "DashboardActivity";
@@ -38,6 +44,11 @@ public class DashboardActivity extends DrawerBaseActivity {
     List<ModelB> modelList;
     StringBuilder cognitoID = new StringBuilder();
     Intent callingIntent;
+    private static UserType userType;
+    boolean[] state = new boolean[1];
+    StringBuilder word = new StringBuilder();
+    CompletableFuture<List<User>> usersfuture = new CompletableFuture<>();
+    ArrayList<User> users = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,16 +57,26 @@ public class DashboardActivity extends DrawerBaseActivity {
         setContentView(activityDashboardBinding.getRoot());
         allocateActivityTitle("Dashboard");
 
-       callingIntent = getIntent();
+        compareToExistingUsers();
 
+
+        callingIntent = getIntent();
+        getUserType();
         getData();
         recyclerView = findViewById(R.id.recyclerView);
         Adapter adapter = new Adapter(modelList);
         recyclerView.setAdapter(adapter);
 
         dataTestButton();
+        addPropertyButton();
 
-        getAuthUser();
+        new Timer().schedule(new TimerTask() {
+            @Override
+            public void run() {
+                // this code will be executed after 2 seconds
+                getAuthUser();
+            }
+        }, 20000);
     }
 
     @Override
@@ -68,45 +89,64 @@ public class DashboardActivity extends DrawerBaseActivity {
 
     public void getAuthUser(){
         String newUserEmail = callingIntent.getStringExtra(LoginActivity.EMAIL_TAG);
+        usersfuture.complete(users);
         Auth.getCurrentUser(
                 success->{
                     cognitoID.append(success.getUserId());
-
+                    boolean state = true;
+                    for(User user : users){
+                        if(user.getCognitoId().equals(cognitoID.toString())){
+                            state = false;
+                        }
+                    }
+                    if(state){
+                        createDynamoUser(newUserEmail, success.getUserId());
                     Log.i(TAG, "this is the userID: " + cognitoID.toString() + " with email: " + newUserEmail);
+                    }
+                    else{
+                    Log.i(TAG, "Not created");
+                    }
                 },
                 failure->{
                     Log.w(TAG, "username could not be found", failure);
                 }
         );
 
-        if(compareToExistingUsers(cognitoID.toString())){
-            createDynamoUser(newUserEmail, cognitoID.toString());
-        }
+//        if(compareToExistingUsers(cognitoID.toString())){
+//            createDynamoUser(newUserEmail, cognitoID.toString());
+//        }
 
     }
 
-    public boolean compareToExistingUsers(String id){
+    public void compareToExistingUsers(){
         Amplify.API.query(
                 ModelQuery.list(User.class),
                 success -> {
-                    Log.i(TAG, "Successfully accessed users");
                     for(User user : success.getData()){
-                       // if(id == user.getCognitoId()) return false;
-
+                        users.add(user);
                     }
-
+                    Log.i(TAG, "Successfully accessed users" + " this is the state: " + state[0]);
                 },
                 failure -> {
                     Log.w(TAG, "Failed to read users");
                 }
         );
-        return true;
     }
 
     public void createDynamoUser(String email, String cognitoId){
 
+    User user = User.builder()
+        .email(email)
+        .cognitoId(cognitoId)
+        .userType(userType)
+        .build();
 
-        addPropertyButton();
+    Amplify.API.mutate(
+            ModelMutation.create(user),
+            success -> Log.i(TAG, "Success for User"),
+            failure -> Log.e(TAG, "Failure for user", failure)
+    );
+
 
     }
 
@@ -131,6 +171,37 @@ public class DashboardActivity extends DrawerBaseActivity {
             Intent goToAddPropertyIntent = new Intent(DashboardActivity.this, AddPropertyActivity.class);
             startActivity(goToAddPropertyIntent);
         });
+    }
+
+    public void getUserType(){
+        Amplify.API.query(
+                ModelQuery.list(UserType.class),
+                success -> {
+                    for (UserType type : success.getData()){
+                        userType = type;
+                    }
+                    if(userType == null){
+                        saveUserType();
+                        getUserType();
+                    }
+                    Log.i(TAG, "Read User Type Successful");
+                },
+                failure -> {
+                    Log.w(TAG, "Did not read UserType successfully from database");
+                }
+        );
+    }
+
+    private void saveUserType(){
+        UserType userType =  UserType.builder()
+        .type("agent")
+                .build();
+
+        Amplify.API.mutate(
+                ModelMutation.create(userType),
+                success -> Log.i(TAG, "Success for User Type"),
+                failure -> Log.e(TAG, "Failure for User Type", failure)
+        );
     }
 
 }
