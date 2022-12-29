@@ -10,6 +10,7 @@ mutation CreateUserType(
       items {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -31,6 +32,7 @@ mutation UpdateUserType(
       items {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -52,6 +54,7 @@ mutation DeleteUserType(
       items {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -69,10 +72,12 @@ mutation CreateUser(
   createUser(input: $input, condition: $condition) {
     id
     email
+    cognitoID
     clients {
       items {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -100,10 +105,12 @@ mutation UpdateUser(
   updateUser(input: $input, condition: $condition) {
     id
     email
+    cognitoID
     clients {
       items {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -131,10 +138,12 @@ mutation DeleteUser(
   deleteUser(input: $input, condition: $condition) {
     id
     email
+    cognitoID
     clients {
       items {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -162,6 +171,7 @@ mutation CreateClient(
   createClient(input: $input, condition: $condition) {
     id
     email
+    cognitoID
     properties {
       items {
         id
@@ -184,6 +194,7 @@ mutation CreateClient(
     user {
       id
       email
+      cognitoID
       clients {
         nextToken
       }
@@ -208,6 +219,7 @@ mutation UpdateClient(
   updateClient(input: $input, condition: $condition) {
     id
     email
+    cognitoID
     properties {
       items {
         id
@@ -230,6 +242,7 @@ mutation UpdateClient(
     user {
       id
       email
+      cognitoID
       clients {
         nextToken
       }
@@ -254,6 +267,7 @@ mutation DeleteClient(
   deleteClient(input: $input, condition: $condition) {
     id
     email
+    cognitoID
     properties {
       items {
         id
@@ -276,6 +290,7 @@ mutation DeleteClient(
     user {
       id
       email
+      cognitoID
       clients {
         nextToken
       }
@@ -346,6 +361,7 @@ mutation CreateProperty(
     client {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
@@ -353,6 +369,7 @@ mutation CreateProperty(
       user {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -417,6 +434,7 @@ mutation UpdateProperty(
     client {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
@@ -424,6 +442,7 @@ mutation UpdateProperty(
       user {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -488,6 +507,7 @@ mutation DeleteProperty(
     client {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
@@ -495,6 +515,7 @@ mutation DeleteProperty(
       user {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -567,6 +588,7 @@ mutation CreateOffer(
       client {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -639,6 +661,7 @@ mutation UpdateOffer(
       client {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -711,6 +734,7 @@ mutation DeleteOffer(
       client {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt

@@ -12,9 +12,8 @@ import java.util.Set;
  * interface.
  */
 
-public final class
-AmplifyModelProvider implements ModelProvider {
-  private static final String AMPLIFY_MODEL_VERSION = "932406f979de46c1b16463d5a675c21a";
+public final class AmplifyModelProvider implements ModelProvider {
+  private static final String AMPLIFY_MODEL_VERSION = "9e8c6f293a36ad337a516df9e5b8c8ea";
   private static AmplifyModelProvider amplifyGeneratedModelInstance;
   private AmplifyModelProvider() {
     
