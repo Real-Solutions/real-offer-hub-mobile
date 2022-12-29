@@ -14,6 +14,7 @@ import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.generated.model.Client;
 import com.amplifyframework.datastore.generated.model.Property;
+import com.amplifyframework.datastore.generated.model.User;
 import com.maximo.real_offer_hub_mobile.R;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityAddPropertyBinding;
 
@@ -22,7 +23,7 @@ import java.util.Date;
 
 public class AddPropertyActivity extends DrawerBaseActivity {
     public final static String TAG = "AddPropertyActivity";
-    Client client;
+    User user;
     ActivityAddPropertyBinding activityAddPropertyBinding;
 
     @Override
@@ -42,11 +43,11 @@ public class AddPropertyActivity extends DrawerBaseActivity {
 
     private void offerTest(){
         Amplify.API.query(
-                ModelQuery.list(Client.class),
+                ModelQuery.list(User.class),
                 success -> {
                     Log.i(TAG, "Added Offers Successfully");
-                    for (Client cl : success.getData()) {
-                        client = cl;
+                    for (User ur : success.getData()) {
+                        user = ur;
                     }
                 },
 
@@ -75,7 +76,7 @@ public class AddPropertyActivity extends DrawerBaseActivity {
                 .yearBuilt(Integer.parseInt(((EditText)findViewById(R.id.AddPropertyTextEditYearBuilt)).getText().toString()))
                 .priceString("$600000")
                 .squareFootageString("1100")
-                .client(client)
+                .user(user)
                 .build();
 
         Amplify.API.mutate(

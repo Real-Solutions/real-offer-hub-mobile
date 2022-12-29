@@ -41,11 +41,18 @@ query GetUser($id: ID!) {
     id
     email
     cognitoID
-    clients {
+    properties {
       items {
         id
-        email
-        cognitoID
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
         userId
         createdAt
         updatedAt
@@ -76,86 +83,13 @@ query ListUsers(
       id
       email
       cognitoID
-      clients {
-        nextToken
-      }
-      userTypeId
-      userType {
-        id
-        type
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
-query GetClient($id: ID!) {
-  getClient(id: $id) {
-    id
-    email
-    cognitoID
-    properties {
-      items {
-        id
-        address
-        price
-        initialPosting
-        numberOfRooms
-        numberOfBathrooms
-        squareFootage
-        yearBuilt
-        priceString
-        squareFootageString
-        clientId
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    userId
-    user {
-      id
-      email
-      cognitoID
-      clients {
-        nextToken
-      }
-      userTypeId
-      userType {
-        id
-        type
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-    createdAt
-    updatedAt
-  }
-}
-query ListClients(
-  $filter: ModelClientFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  listClients(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      email
-      cognitoID
       properties {
         nextToken
       }
-      userId
-      user {
+      userTypeId
+      userType {
         id
-        email
-        cognitoID
-        userTypeId
+        type
         createdAt
         updatedAt
       }
@@ -211,20 +145,18 @@ query GetProperty($id: ID!) {
       }
       nextToken
     }
-    clientId
-    client {
+    userId
+    user {
       id
       email
       cognitoID
       properties {
         nextToken
       }
-      userId
-      user {
+      userTypeId
+      userType {
         id
-        email
-        cognitoID
-        userTypeId
+        type
         createdAt
         updatedAt
       }
@@ -255,12 +187,12 @@ query ListProperties(
       offers {
         nextToken
       }
-      clientId
-      client {
+      userId
+      user {
         id
         email
         cognitoID
-        userId
+        userTypeId
         createdAt
         updatedAt
       }
@@ -324,12 +256,12 @@ query GetOffer($id: ID!) {
       offers {
         nextToken
       }
-      clientId
-      client {
+      userId
+      user {
         id
         email
         cognitoID
-        userId
+        userTypeId
         createdAt
         updatedAt
       }
@@ -388,7 +320,7 @@ query ListOffers(
         yearBuilt
         priceString
         squareFootageString
-        clientId
+        userId
         createdAt
         updatedAt
       }
@@ -446,7 +378,7 @@ query GetMessage($id: ID!) {
         yearBuilt
         priceString
         squareFootageString
-        clientId
+        userId
         createdAt
         updatedAt
       }
@@ -525,7 +457,7 @@ query UsersByUserTypeIdAndEmail(
       id
       email
       cognitoID
-      clients {
+      properties {
         nextToken
       }
       userTypeId
@@ -541,54 +473,16 @@ query UsersByUserTypeIdAndEmail(
     nextToken
   }
 }
-query ClientsByUserIdAndEmail(
+query PropertiesByUserIdAndAddress(
   $userId: ID!
-  $email: ModelStringKeyConditionInput
-  $sortDirection: ModelSortDirection
-  $filter: ModelClientFilterInput
-  $limit: Int
-  $nextToken: String
-) {
-  clientsByUserIdAndEmail(
-    userId: $userId
-    email: $email
-    sortDirection: $sortDirection
-    filter: $filter
-    limit: $limit
-    nextToken: $nextToken
-  ) {
-    items {
-      id
-      email
-      cognitoID
-      properties {
-        nextToken
-      }
-      userId
-      user {
-        id
-        email
-        cognitoID
-        userTypeId
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-    nextToken
-  }
-}
-query PropertiesByClientIdAndAddress(
-  $clientId: ID!
   $address: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelPropertyFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  propertiesByClientIdAndAddress(
-    clientId: $clientId
+  propertiesByUserIdAndAddress(
+    userId: $userId
     address: $address
     sortDirection: $sortDirection
     filter: $filter
@@ -609,12 +503,12 @@ query PropertiesByClientIdAndAddress(
       offers {
         nextToken
       }
-      clientId
-      client {
+      userId
+      user {
         id
         email
         cognitoID
-        userId
+        userTypeId
         createdAt
         updatedAt
       }
@@ -682,7 +576,7 @@ query OffersByPropertyIdAndOfferPrice(
         yearBuilt
         priceString
         squareFootageString
-        clientId
+        userId
         createdAt
         updatedAt
       }

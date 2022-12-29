@@ -86,7 +86,6 @@ public class DashboardActivity extends DrawerBaseActivity {
     }
 
 
-
     public void getAuthUser(){
         String newUserEmail = callingIntent.getStringExtra(LoginActivity.EMAIL_TAG);
         usersfuture.complete(users);
