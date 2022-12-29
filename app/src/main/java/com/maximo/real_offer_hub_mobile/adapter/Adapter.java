@@ -18,9 +18,11 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
     private static final String TAG ="Adapter";
     List<ModelB> modelList;
+    boolean[] state;
 
     public Adapter(List<ModelB> modelList) {
         this.modelList = modelList;
+        this.state = new boolean[modelList.size()];
     }
 
     @Override
@@ -40,7 +42,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
         holder.responseDateView.setText(modelB.getResponseDate());
         holder.responseTimeView.setText(modelB.getResponseTime());
         holder.closeOfEscrowView.setText(modelB.getCloseOfEscrow());
-        boolean isExpanded = modelList.get(position).isExpanded();
+        boolean isExpanded = this.state[position];
         holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE:View.GONE);
 
     }
@@ -66,8 +68,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
             expandableLayout = itemView.findViewById(R.id.expandablelayout);
 
             propertyView.setOnClickListener(view -> {
-                ModelB modelB = modelList.get(getAdapterPosition());
-                modelB.setExpanded(!modelB.isExpanded());
+                state[getAdapterPosition()] = !state[getAdapterPosition()];
                 notifyItemChanged(getAdapterPosition());
             });
         }
