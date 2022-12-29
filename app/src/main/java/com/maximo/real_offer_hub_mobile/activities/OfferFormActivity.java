@@ -6,6 +6,7 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.model.temporal.Temporal;
+import com.amplifyframework.datastore.generated.model.Client;
 import com.amplifyframework.datastore.generated.model.Offer;
 import com.amplifyframework.datastore.generated.model.Property;
 import com.maximo.real_offer_hub_mobile.R;
@@ -32,7 +33,8 @@ public class OfferFormActivity extends DrawerBaseActivity {
     Spinner propertiesSpinner;
     CompletableFuture<List<Property>> propertiesFuture = new CompletableFuture<>();
     ActivityOfferFormBinding activityOfferFormBinding;
-
+    ArrayList<String> address = new ArrayList<>();
+    ArrayList<Property> properties = new ArrayList<>();
 
 
     @Override
@@ -44,27 +46,31 @@ public class OfferFormActivity extends DrawerBaseActivity {
         propertiesSpinner = findViewById(R.id.OfferFormSpinnerPropertyAddress);
 
         Amplify.API.query(
-                ModelQuery.list(Property.class),
+                ModelQuery.list(Client.class),
                 success -> {
                     Log.i(TAG, "Added Offers Successfully");
-                    ArrayList<String> address = new ArrayList<>();
-                    ArrayList<Property> properties = new ArrayList<>();
-                    for (Property property: success.getData()) {
-                        address.add(property.getAddress());
-                        properties.add(property);
+
+                    for (Client client: success.getData()) {
+                        properties.addAll(client.getProperties());
+                        for (Property property : client.getProperties()){
+                            address.add(property.getAddress());
+                        }
                     }
                     propertiesFuture.complete(properties);
                     runOnUiThread(() -> {
                         setupPropertySpinner(address);
                     });
+
                 },
                 failure -> {
                     propertiesFuture.complete(null);
+
                     Log.w(TAG, "Failed to read Teams from Database");
                 }
         );
 
-//        setupAddOfferButton();
+        setupAddOfferButton();
+
     }
 
     public void setupPropertySpinner(ArrayList<String> address){
@@ -75,49 +81,57 @@ public class OfferFormActivity extends DrawerBaseActivity {
         ));
     }
 
-//    public void setupAddOfferButton(){
-//        Button addOfferButton = findViewById(R.id.OfferFormBtnSubmitOffer);
-//        addOfferButton.setOnClickListener(view -> {
-//            String selectedPropertyString = propertiesSpinner.getSelectedItem().toString();
-//            List<Property> properties = null;
-//            try{
-//                properties = propertiesFuture.get();
-//            } catch(InterruptedException ie){
-//                Log.e(TAG, "InterruptedException while getting teams");
-//                Thread.currentThread().interrupt();
-//            } catch(ExecutionException ee) {
-//                Log.e(TAG, "ExecutionException while getting teams");
-//            }
-//            Property selectedProperty = properties.stream().filter(theProperty -> theProperty.getAddress().equals(selectedPropertyString)).findAny().orElseThrow(RuntimeException::new);
-//            Offer newOffer = Offer.builder()
-//                .buyersFirstName(((EditText)findViewById(R.id.editTextTextPersonName2)).getText().toString())
-//                .buyersLastName(((EditText)findViewById(R.id.OfferFormTextEditBuyersLastName)).getText().toString())
-//                .offerPrice(Double.parseDouble(((EditText)findViewById(R.id.OfferFormNumberOfferPrice)).getText().toString()))
-//                .ernestMoneyAmount(Double.parseDouble(((EditText)findViewById(R.id.offerFormNumberEarnestMoneyAmount)).getText().toString()))
-//                .downPayment(Double.parseDouble(((EditText)findViewById(R.id.OfferFormNumberDownPayment)).getText().toString()))
-//                .closeOfEscrow(new Temporal.Date(new Date(), 0))
-//                .concessions(((EditText)findViewById(R.id.OfferFormTextEditConcessions)).getText().toString())
-//                .loanType(((EditText)findViewById(R.id.OfferFormTextEditLoanType)).getText().toString())
-//                .contingentBuyer(true)
-//                .personalPropertyRequested(((EditText)findViewById(R.id.OfferFormTextEditPersonalPropertyRequested)).getText().toString())
-//                .hoa(((EditText)findViewById(R.id.OfferFormTextEditHoa)).getText().toString())
-//                .homeWarranty(((EditText)findViewById(R.id.OfferFormTextEditHomeWarranty)).getText().toString())
-//                .inspectionPeriod(((EditText)findViewById(R.id.OfferFormTextEditInspectionPeriod)).getText().toString())
-//                .escalation(true)
-//                .responseDate(new Temporal.Date(new Date(), 0))
-//                .responseTime(new Temporal.Time(new Date(), 0))
-//                .additionalTermsAndConditions(((EditText)findViewById(R.id.OfferFormMultilineTextAdditionalTerms)).getText().toString())
-//                .property(selectedProperty)
-//                .build();
-//
-//
-//            Amplify.API.mutate(
-//                    ModelMutation.create(newOffer),
-//                    success -> Log.i(TAG, "Made an offer successfully"),
-//                    failure -> Log.i(TAG, "Failed to make an Offer", failure)
-//            );
-//
-//            Toast.makeText(this, "Offer Saved!", Toast.LENGTH_SHORT).show();
-//        });
-//    }
+
+    public void setupAddOfferButton(){
+        Button addOfferButton = findViewById(R.id.OfferFormBtnSubmitOffer);
+        addOfferButton.setOnClickListener(view -> {
+            String selectedPropertyString = propertiesSpinner.getSelectedItem().toString();
+            List<Property> properties = null;
+            try{
+                properties = propertiesFuture.get();
+            } catch(InterruptedException ie){
+                Log.e(TAG, "InterruptedException while getting teams");
+                Thread.currentThread().interrupt();
+            } catch(ExecutionException ee) {
+                Log.e(TAG, "ExecutionException while getting teams");
+            }
+            Property selectedProperty = properties.stream().filter(theProperty -> theProperty.getAddress().equals(selectedPropertyString)).findAny().orElseThrow(RuntimeException::new);
+            Offer newOffer = Offer.builder()
+                .buyersFirstName(((EditText)findViewById(R.id.editTextTextPersonName2)).getText().toString())
+                .buyersLastName(((EditText)findViewById(R.id.OfferFormTextEditBuyersLastName)).getText().toString())
+                .offerPrice(Double.parseDouble(((EditText)findViewById(R.id.OfferFormNumberOfferPrice)).getText().toString()))
+                .ernestMoneyAmount(Double.parseDouble(((EditText)findViewById(R.id.offerFormNumberEarnestMoneyAmount)).getText().toString()))
+                .downPayment(Double.parseDouble(((EditText)findViewById(R.id.OfferFormNumberDownPayment)).getText().toString()))
+                .closeOfEscrow(new Temporal.Date(new Date(), 0))
+                .concessions(((EditText)findViewById(R.id.OfferFormTextEditConcessions)).getText().toString())
+                .loanType(((EditText)findViewById(R.id.OfferFormTextEditLoanType)).getText().toString())
+                .contingentBuyer(true)
+                .personalPropertyRequested(((EditText)findViewById(R.id.OfferFormTextEditPersonalPropertyRequested)).getText().toString())
+                .hoa(((EditText)findViewById(R.id.OfferFormTextEditHoa)).getText().toString())
+                .homeWarranty(((EditText)findViewById(R.id.OfferFormTextEditHomeWarranty)).getText().toString())
+                .inspectionPeriod(((EditText)findViewById(R.id.OfferFormTextEditInspectionPeriod)).getText().toString())
+                .escalation(true)
+                .responseDate(new Temporal.Date(new Date(), 0))
+                .responseTime(new Temporal.Time(new Date(), 0))
+                .additionalTermsAndConditions(((EditText)findViewById(R.id.OfferFormMultilineTextAdditionalTerms)).getText().toString())
+                .priceString("$5000")
+                .downPaymentString("500")
+                .ernestMoneyAmountString("100")
+                .contingentBuyerString("yes")
+                .responseDateString("12/30/2022")
+                .closeOfEscrowString("100")
+                .responseTimeString("7:00pm")
+                .property(selectedProperty)
+                .build();
+
+
+            Amplify.API.mutate(
+                    ModelMutation.create(newOffer),
+                    success -> Log.i(TAG, "Made an offer successfully"),
+                    failure -> Log.i(TAG, "Failed to make an Offer", failure)
+            );
+
+            Toast.makeText(this, "Offer Saved!", Toast.LENGTH_SHORT).show();
+        });
+    }
 }
