@@ -1096,6 +1096,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "cognitoID",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userTypeId",
                         "description": null,
                         "type": {
@@ -1718,6 +1728,22 @@
                         "deprecationReason": null
                     },
                     {
+                        "name": "cognitoID",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
                         "name": "clients",
                         "description": null,
                         "args": [
@@ -1873,6 +1899,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "cognitoID",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userId",
                         "description": null,
                         "type": {
@@ -1991,6 +2027,22 @@
                     },
                     {
                         "name": "email",
+                        "description": null,
+                        "args": [],
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "isDeprecated": false,
+                        "deprecationReason": null
+                    },
+                    {
+                        "name": "cognitoID",
                         "description": null,
                         "args": [],
                         "type": {
@@ -5131,6 +5183,20 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "cognitoID",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userTypeId",
                         "description": null,
                         "type": {
@@ -5157,6 +5223,16 @@
                 "inputFields": [
                     {
                         "name": "email",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cognitoID",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -5249,6 +5325,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "cognitoID",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userTypeId",
                         "description": null,
                         "type": {
@@ -5319,6 +5405,20 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "cognitoID",
+                        "description": null,
+                        "type": {
+                            "kind": "NON_NULL",
+                            "name": null,
+                            "ofType": {
+                                "kind": "SCALAR",
+                                "name": "String",
+                                "ofType": null
+                            }
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userId",
                         "description": null,
                         "type": {
@@ -5345,6 +5445,16 @@
                 "inputFields": [
                     {
                         "name": "email",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cognitoID",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",
@@ -5428,6 +5538,16 @@
                     },
                     {
                         "name": "email",
+                        "description": null,
+                        "type": {
+                            "kind": "SCALAR",
+                            "name": "String",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cognitoID",
                         "description": null,
                         "type": {
                             "kind": "SCALAR",
@@ -7947,6 +8067,16 @@
                         "defaultValue": null
                     },
                     {
+                        "name": "cognitoID",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelSubscriptionStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
                         "name": "userTypeId",
                         "description": null,
                         "type": {
@@ -8007,6 +8137,16 @@
                     },
                     {
                         "name": "email",
+                        "description": null,
+                        "type": {
+                            "kind": "INPUT_OBJECT",
+                            "name": "ModelSubscriptionStringInput",
+                            "ofType": null
+                        },
+                        "defaultValue": null
+                    },
+                    {
+                        "name": "cognitoID",
                         "description": null,
                         "type": {
                             "kind": "INPUT_OBJECT",

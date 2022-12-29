@@ -30,9 +30,11 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 public final class Client implements Model {
   public static final QueryField ID = field("Client", "id");
   public static final QueryField EMAIL = field("Client", "email");
+  public static final QueryField COGNITO_ID = field("Client", "cognitoID");
   public static final QueryField USER = field("Client", "userId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String email;
+  private final @ModelField(targetType="String", isRequired = true) String cognitoID;
   private final @ModelField(targetType="Property") @HasMany(associatedWith = "client", type = Property.class) List<Property> properties = null;
   private final @ModelField(targetType="User") @BelongsTo(targetName = "userId", targetNames = {"userId"}, type = User.class) User user;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
@@ -47,6 +49,10 @@ public final class Client implements Model {
   
   public String getEmail() {
       return email;
+  }
+  
+  public String getCognitoId() {
+      return cognitoID;
   }
   
   public List<Property> getProperties() {
@@ -65,9 +71,10 @@ public final class Client implements Model {
       return updatedAt;
   }
   
-  private Client(String id, String email, User user) {
+  private Client(String id, String email, String cognitoID, User user) {
     this.id = id;
     this.email = email;
+    this.cognitoID = cognitoID;
     this.user = user;
   }
   
@@ -81,6 +88,7 @@ public final class Client implements Model {
       Client client = (Client) obj;
       return ObjectsCompat.equals(getId(), client.getId()) &&
               ObjectsCompat.equals(getEmail(), client.getEmail()) &&
+              ObjectsCompat.equals(getCognitoId(), client.getCognitoId()) &&
               ObjectsCompat.equals(getUser(), client.getUser()) &&
               ObjectsCompat.equals(getCreatedAt(), client.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), client.getUpdatedAt());
@@ -92,6 +100,7 @@ public final class Client implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getEmail())
+      .append(getCognitoId())
       .append(getUser())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -105,6 +114,7 @@ public final class Client implements Model {
       .append("Client {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("email=" + String.valueOf(getEmail()) + ", ")
+      .append("cognitoID=" + String.valueOf(getCognitoId()) + ", ")
       .append("user=" + String.valueOf(getUser()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -128,6 +138,7 @@ public final class Client implements Model {
     return new Client(
       id,
       null,
+      null,
       null
     );
   }
@@ -135,10 +146,16 @@ public final class Client implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       email,
+      cognitoID,
       user);
   }
   public interface EmailStep {
-    BuildStep email(String email);
+    CognitoIdStep email(String email);
+  }
+  
+
+  public interface CognitoIdStep {
+    BuildStep cognitoId(String cognitoId);
   }
   
 
@@ -149,9 +166,10 @@ public final class Client implements Model {
   }
   
 
-  public static class Builder implements EmailStep, BuildStep {
+  public static class Builder implements EmailStep, CognitoIdStep, BuildStep {
     private String id;
     private String email;
+    private String cognitoID;
     private User user;
     @Override
      public Client build() {
@@ -160,13 +178,21 @@ public final class Client implements Model {
         return new Client(
           id,
           email,
+          cognitoID,
           user);
     }
     
     @Override
-     public BuildStep email(String email) {
+     public CognitoIdStep email(String email) {
         Objects.requireNonNull(email);
         this.email = email;
+        return this;
+    }
+    
+    @Override
+     public BuildStep cognitoId(String cognitoId) {
+        Objects.requireNonNull(cognitoId);
+        this.cognitoID = cognitoId;
         return this;
     }
     
@@ -188,15 +214,21 @@ public final class Client implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String email, User user) {
+    private CopyOfBuilder(String id, String email, String cognitoId, User user) {
       super.id(id);
       super.email(email)
+        .cognitoId(cognitoId)
         .user(user);
     }
     
     @Override
      public CopyOfBuilder email(String email) {
       return (CopyOfBuilder) super.email(email);
+    }
+    
+    @Override
+     public CopyOfBuilder cognitoId(String cognitoId) {
+      return (CopyOfBuilder) super.cognitoId(cognitoId);
     }
     
     @Override

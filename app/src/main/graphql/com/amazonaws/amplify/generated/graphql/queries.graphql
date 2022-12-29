@@ -7,6 +7,7 @@ query GetUserType($id: ID!) {
       items {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -39,10 +40,12 @@ query GetUser($id: ID!) {
   getUser(id: $id) {
     id
     email
+    cognitoID
     clients {
       items {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -72,6 +75,7 @@ query ListUsers(
     items {
       id
       email
+      cognitoID
       clients {
         nextToken
       }
@@ -92,6 +96,7 @@ query GetClient($id: ID!) {
   getClient(id: $id) {
     id
     email
+    cognitoID
     properties {
       items {
         id
@@ -114,6 +119,7 @@ query GetClient($id: ID!) {
     user {
       id
       email
+      cognitoID
       clients {
         nextToken
       }
@@ -140,6 +146,7 @@ query ListClients(
     items {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
@@ -147,6 +154,7 @@ query ListClients(
       user {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -207,6 +215,7 @@ query GetProperty($id: ID!) {
     client {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
@@ -214,6 +223,7 @@ query GetProperty($id: ID!) {
       user {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -249,6 +259,7 @@ query ListProperties(
       client {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -317,6 +328,7 @@ query GetOffer($id: ID!) {
       client {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
@@ -512,6 +524,7 @@ query UsersByUserTypeIdAndEmail(
     items {
       id
       email
+      cognitoID
       clients {
         nextToken
       }
@@ -547,6 +560,7 @@ query ClientsByUserIdAndEmail(
     items {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
@@ -554,6 +568,7 @@ query ClientsByUserIdAndEmail(
       user {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -598,6 +613,7 @@ query PropertiesByClientIdAndAddress(
       client {
         id
         email
+        cognitoID
         userId
         createdAt
         updatedAt
