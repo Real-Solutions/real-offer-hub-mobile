@@ -60,7 +60,7 @@ public class DrawerBaseActivity extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.add_property:
-                startActivity(new Intent(this, AddPropertyActivity.class));
+                startActivity(new Intent(this, ClientSelection.class));
                 overridePendingTransition(0,0);
                 break;
 

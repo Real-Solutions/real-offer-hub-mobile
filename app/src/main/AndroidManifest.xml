@@ -14,7 +14,21 @@
         android:theme="@style/Theme.Realofferhubmobile"
         tools:targetApi="31">
         <activity
-            android:name=".OfferDetailActivity"
+            android:name=".activities.NewClientSignUpActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.ClientSelection"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".activities.OfferDetailActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -131,7 +145,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".activities.DataTest"
             android:exported="false">
