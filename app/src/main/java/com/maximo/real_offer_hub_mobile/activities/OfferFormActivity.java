@@ -6,6 +6,7 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.core.model.temporal.Temporal;
+import com.amplifyframework.datastore.generated.model.Client;
 import com.amplifyframework.datastore.generated.model.Offer;
 import com.amplifyframework.datastore.generated.model.Property;
 import com.maximo.real_offer_hub_mobile.R;
@@ -32,7 +33,8 @@ public class OfferFormActivity extends DrawerBaseActivity {
     Spinner propertiesSpinner;
     CompletableFuture<List<Property>> propertiesFuture = new CompletableFuture<>();
     ActivityOfferFormBinding activityOfferFormBinding;
-
+    ArrayList<String> address = new ArrayList<>();
+    ArrayList<Property> properties = new ArrayList<>();
 
 
     @Override
@@ -44,27 +46,31 @@ public class OfferFormActivity extends DrawerBaseActivity {
         propertiesSpinner = findViewById(R.id.OfferFormSpinnerPropertyAddress);
 
         Amplify.API.query(
-                ModelQuery.list(Property.class),
+                ModelQuery.list(Client.class),
                 success -> {
                     Log.i(TAG, "Added Offers Successfully");
-                    ArrayList<String> address = new ArrayList<>();
-                    ArrayList<Property> properties = new ArrayList<>();
-                    for (Property property: success.getData()) {
-                        address.add(property.getAddress());
-                        properties.add(property);
+
+                    for (Client client: success.getData()) {
+                        properties.addAll(client.getProperties());
+                        for (Property property : client.getProperties()){
+                            address.add(property.getAddress());
+                        }
                     }
                     propertiesFuture.complete(properties);
                     runOnUiThread(() -> {
                         setupPropertySpinner(address);
                     });
+
                 },
                 failure -> {
                     propertiesFuture.complete(null);
+
                     Log.w(TAG, "Failed to read Teams from Database");
                 }
         );
 
         setupAddOfferButton();
+//        setupPropertySpinner(address);
     }
 
     public void setupPropertySpinner(ArrayList<String> address){
@@ -107,6 +113,13 @@ public class OfferFormActivity extends DrawerBaseActivity {
                 .responseDate(new Temporal.Date(new Date(), 0))
                 .responseTime(new Temporal.Time(new Date(), 0))
                 .additionalTermsAndConditions(((EditText)findViewById(R.id.OfferFormMultilineTextAdditionalTerms)).getText().toString())
+                .priceString("$5000")
+                .downPaymentString("500")
+                .ernestMoneyAmountString("100")
+                .contingentBuyerString("yes")
+                .responseDateString("12/30/2022")
+                .closeOfEscrowString("100")
+                .responseTimeString("7:00pm")
                 .property(selectedProperty)
                 .build();
 

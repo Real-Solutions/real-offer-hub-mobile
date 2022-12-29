@@ -6,8 +6,7 @@ subscription OnCreateUserType($filter: ModelSubscriptionUserTypeFilterInput) {
     users {
       items {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -25,8 +24,7 @@ subscription OnUpdateUserType($filter: ModelSubscriptionUserTypeFilterInput) {
     users {
       items {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -44,8 +42,7 @@ subscription OnDeleteUserType($filter: ModelSubscriptionUserTypeFilterInput) {
     users {
       items {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -59,13 +56,11 @@ subscription OnDeleteUserType($filter: ModelSubscriptionUserTypeFilterInput) {
 subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
   onCreateUser(filter: $filter) {
     id
-    firstName
-    lastName
+    email
     clients {
       items {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -89,13 +84,11 @@ subscription OnCreateUser($filter: ModelSubscriptionUserFilterInput) {
 subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
   onUpdateUser(filter: $filter) {
     id
-    firstName
-    lastName
+    email
     clients {
       items {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -119,13 +112,11 @@ subscription OnUpdateUser($filter: ModelSubscriptionUserFilterInput) {
 subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
   onDeleteUser(filter: $filter) {
     id
-    firstName
-    lastName
+    email
     clients {
       items {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -149,8 +140,7 @@ subscription OnDeleteUser($filter: ModelSubscriptionUserFilterInput) {
 subscription OnCreateClient($filter: ModelSubscriptionClientFilterInput) {
   onCreateClient(filter: $filter) {
     id
-    firstName
-    lastName
+    email
     properties {
       items {
         id
@@ -172,8 +162,7 @@ subscription OnCreateClient($filter: ModelSubscriptionClientFilterInput) {
     userId
     user {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -194,8 +183,7 @@ subscription OnCreateClient($filter: ModelSubscriptionClientFilterInput) {
 subscription OnUpdateClient($filter: ModelSubscriptionClientFilterInput) {
   onUpdateClient(filter: $filter) {
     id
-    firstName
-    lastName
+    email
     properties {
       items {
         id
@@ -217,8 +205,7 @@ subscription OnUpdateClient($filter: ModelSubscriptionClientFilterInput) {
     userId
     user {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -239,8 +226,7 @@ subscription OnUpdateClient($filter: ModelSubscriptionClientFilterInput) {
 subscription OnDeleteClient($filter: ModelSubscriptionClientFilterInput) {
   onDeleteClient(filter: $filter) {
     id
-    firstName
-    lastName
+    email
     properties {
       items {
         id
@@ -262,8 +248,7 @@ subscription OnDeleteClient($filter: ModelSubscriptionClientFilterInput) {
     userId
     user {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -330,16 +315,14 @@ subscription OnCreateProperty($filter: ModelSubscriptionPropertyFilterInput) {
     clientId
     client {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -400,16 +383,14 @@ subscription OnUpdateProperty($filter: ModelSubscriptionPropertyFilterInput) {
     clientId
     client {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -470,16 +451,14 @@ subscription OnDeleteProperty($filter: ModelSubscriptionPropertyFilterInput) {
     clientId
     client {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -548,8 +527,7 @@ subscription OnCreateOffer($filter: ModelSubscriptionOfferFilterInput) {
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -618,8 +596,7 @@ subscription OnUpdateOffer($filter: ModelSubscriptionOfferFilterInput) {
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -688,8 +665,7 @@ subscription OnDeleteOffer($filter: ModelSubscriptionOfferFilterInput) {
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt

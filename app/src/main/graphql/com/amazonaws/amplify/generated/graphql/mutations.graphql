@@ -9,8 +9,7 @@ mutation CreateUserType(
     users {
       items {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -31,8 +30,7 @@ mutation UpdateUserType(
     users {
       items {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -53,8 +51,7 @@ mutation DeleteUserType(
     users {
       items {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -71,13 +68,11 @@ mutation CreateUser(
 ) {
   createUser(input: $input, condition: $condition) {
     id
-    firstName
-    lastName
+    email
     clients {
       items {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -104,13 +99,11 @@ mutation UpdateUser(
 ) {
   updateUser(input: $input, condition: $condition) {
     id
-    firstName
-    lastName
+    email
     clients {
       items {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -137,13 +130,11 @@ mutation DeleteUser(
 ) {
   deleteUser(input: $input, condition: $condition) {
     id
-    firstName
-    lastName
+    email
     clients {
       items {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -170,8 +161,7 @@ mutation CreateClient(
 ) {
   createClient(input: $input, condition: $condition) {
     id
-    firstName
-    lastName
+    email
     properties {
       items {
         id
@@ -193,8 +183,7 @@ mutation CreateClient(
     userId
     user {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -218,8 +207,7 @@ mutation UpdateClient(
 ) {
   updateClient(input: $input, condition: $condition) {
     id
-    firstName
-    lastName
+    email
     properties {
       items {
         id
@@ -241,8 +229,7 @@ mutation UpdateClient(
     userId
     user {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -266,8 +253,7 @@ mutation DeleteClient(
 ) {
   deleteClient(input: $input, condition: $condition) {
     id
-    firstName
-    lastName
+    email
     properties {
       items {
         id
@@ -289,8 +275,7 @@ mutation DeleteClient(
     userId
     user {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -360,16 +345,14 @@ mutation CreateProperty(
     clientId
     client {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -433,16 +416,14 @@ mutation UpdateProperty(
     clientId
     client {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -506,16 +487,14 @@ mutation DeleteProperty(
     clientId
     client {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -587,8 +566,7 @@ mutation CreateOffer(
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -660,8 +638,7 @@ mutation UpdateOffer(
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -733,8 +710,7 @@ mutation DeleteOffer(
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt

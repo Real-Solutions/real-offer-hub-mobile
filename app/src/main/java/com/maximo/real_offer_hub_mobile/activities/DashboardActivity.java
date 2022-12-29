@@ -1,21 +1,16 @@
 package com.maximo.real_offer_hub_mobile.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
-import com.amplifyframework.core.model.temporal.Temporal;
-import com.amplifyframework.datastore.generated.model.Offer;
 import com.maximo.real_offer_hub_mobile.R;
-import com.maximo.real_offer_hub_mobile.activities.auth.ConfirmationActivity;
 import com.maximo.real_offer_hub_mobile.adapter.Adapter;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityDashboardBinding;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DashboardActivity extends DrawerBaseActivity {
@@ -37,6 +32,15 @@ public class DashboardActivity extends DrawerBaseActivity {
         Adapter adapter = new Adapter(modelList);
         recyclerView.setAdapter(adapter);
 
+        dataTestButton();
+    }
+
+    public void dataTestButton(){
+        Button test = DashboardActivity.this.findViewById(R.id.buttonTest);
+        test.setOnClickListener(view -> {
+            Intent goToTest = new Intent(this, DataTest.class);
+            startActivity(goToTest);
+        });
     }
 
     private void getData() {
