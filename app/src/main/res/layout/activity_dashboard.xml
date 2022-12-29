@@ -11,25 +11,24 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="120dp"
-        android:layout_marginBottom="86dp"
+        android:layout_marginTop="240dp"
+        android:layout_marginBottom="84dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DashboardActivityTextViewWelcome" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/DashboardActivityTextViewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginBottom="8dp"
         android:text="Welcome,"
         android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/DashboardActivityTextViewUserValue"
@@ -43,7 +42,7 @@
         app:layout_constraintTop_toTopOf="@+id/DashboardActivityTextViewWelcome" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
+        android:id="@+id/DashboardFloatingActionBtnAddProperty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
@@ -58,10 +57,91 @@
         android:id="@+id/buttonTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="68dp"
-        android:layout_marginEnd="1dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="4dp"
         android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/DashboardTextViewTotalOffersValue"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/green_gradient_radius"
+        android:padding="22dp"
+        android:text="3"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/DashboardActivityTextViewWelcome"
+        app:layout_constraintEnd_toStartOf="@+id/DashboardTextViewTotalPropertiesValue"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/DashboardTextViewTotalOffersTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Offers"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/DashboardTextViewTotalOffersValue"
+        app:layout_constraintEnd_toEndOf="@+id/DashboardTextViewTotalOffersValue"
+        app:layout_constraintStart_toStartOf="@+id/DashboardTextViewTotalOffersValue" />
+
+    <TextView
+        android:id="@+id/DashboardTextViewTotalPropertiesValue"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/orange_gradient_radius"
+        android:padding="22dp"
+        android:text="7"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/DashboardActivityTextViewWelcome"
+        app:layout_constraintEnd_toStartOf="@+id/DashboardTextViewTotalClientValue"
+        app:layout_constraintStart_toEndOf="@+id/DashboardTextViewTotalOffersValue" />
+
+    <TextView
+        android:id="@+id/DashboardTextViewTotalPropertiesTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Properties"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/DashboardTextViewTotalPropertiesValue"
+        app:layout_constraintEnd_toEndOf="@+id/DashboardTextViewTotalPropertiesValue"
+        app:layout_constraintStart_toStartOf="@+id/DashboardTextViewTotalPropertiesValue" />
+
+    <TextView
+        android:id="@+id/DashboardTextViewTotalClientValue"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/yellow_gradient_radius"
+        android:padding="22dp"
+        android:text="10"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/DashboardActivityTextViewWelcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/DashboardTextViewTotalPropertiesValue" />
+
+    <TextView
+        android:id="@+id/DashboardTextViewTotalClientsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="Clients"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/DashboardTextViewTotalClientValue"
+        app:layout_constraintEnd_toEndOf="@+id/DashboardTextViewTotalClientValue"
+        app:layout_constraintStart_toStartOf="@+id/DashboardTextViewTotalClientValue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

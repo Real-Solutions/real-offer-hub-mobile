@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.maximo.real_offer_hub_mobile.R;
 import com.maximo.real_offer_hub_mobile.adapter.Adapter;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityDashboardBinding;
@@ -33,6 +34,7 @@ public class DashboardActivity extends DrawerBaseActivity {
         recyclerView.setAdapter(adapter);
 
         dataTestButton();
+        addPropertyButton();
     }
 
     public void dataTestButton(){
@@ -48,6 +50,14 @@ public class DashboardActivity extends DrawerBaseActivity {
         modelList.add(new ModelB("1675 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
         modelList.add(new ModelB("1676 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
         modelList.add(new ModelB("1677 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
+    }
+
+    public void addPropertyButton(){
+        FloatingActionButton addProperty = DashboardActivity.this.findViewById(R.id.DashboardFloatingActionBtnAddProperty);
+        addProperty.setOnClickListener(view -> {
+            Intent goToAddPropertyIntent = new Intent(DashboardActivity.this, AddPropertyActivity.class);
+            startActivity(goToAddPropertyIntent);
+        });
     }
 
 }
