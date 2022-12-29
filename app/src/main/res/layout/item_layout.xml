@@ -213,11 +213,12 @@
 
                 <Button
                     android:id="@+id/item_layoutBtnSeeMoreOfferDetails"
-                    android:layout_width="280dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="400dp"
+                    android:layout_height="60dp"
                     android:layout_marginTop="24dp"
-                    android:layout_marginBottom="16dp"
+                    android:backgroundTint="#00B5F8"
                     android:text="See More Offer Details"
+                    android:background="@drawable/blue_gradient"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
