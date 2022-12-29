@@ -6,8 +6,7 @@ query GetUserType($id: ID!) {
     users {
       items {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -39,13 +38,11 @@ query ListUserTypes(
 query GetUser($id: ID!) {
   getUser(id: $id) {
     id
-    firstName
-    lastName
+    email
     clients {
       items {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -74,8 +71,7 @@ query ListUsers(
   listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -95,8 +91,7 @@ query ListUsers(
 query GetClient($id: ID!) {
   getClient(id: $id) {
     id
-    firstName
-    lastName
+    email
     properties {
       items {
         id
@@ -118,8 +113,7 @@ query GetClient($id: ID!) {
     userId
     user {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -145,16 +139,14 @@ query ListClients(
   listClients(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -214,16 +206,14 @@ query GetProperty($id: ID!) {
     clientId
     client {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -258,8 +248,7 @@ query ListProperties(
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -327,8 +316,7 @@ query GetOffer($id: ID!) {
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt
@@ -505,17 +493,17 @@ query ListMessages(
     nextToken
   }
 }
-query UsersByUserTypeIdAndLastName(
+query UsersByUserTypeIdAndEmail(
   $userTypeId: ID!
-  $lastName: ModelStringKeyConditionInput
+  $email: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelUserFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  usersByUserTypeIdAndLastName(
+  usersByUserTypeIdAndEmail(
     userTypeId: $userTypeId
-    lastName: $lastName
+    email: $email
     sortDirection: $sortDirection
     filter: $filter
     limit: $limit
@@ -523,8 +511,7 @@ query UsersByUserTypeIdAndLastName(
   ) {
     items {
       id
-      firstName
-      lastName
+      email
       clients {
         nextToken
       }
@@ -541,17 +528,17 @@ query UsersByUserTypeIdAndLastName(
     nextToken
   }
 }
-query ClientsByUserIdAndLastName(
+query ClientsByUserIdAndEmail(
   $userId: ID!
-  $lastName: ModelStringKeyConditionInput
+  $email: ModelStringKeyConditionInput
   $sortDirection: ModelSortDirection
   $filter: ModelClientFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  clientsByUserIdAndLastName(
+  clientsByUserIdAndEmail(
     userId: $userId
-    lastName: $lastName
+    email: $email
     sortDirection: $sortDirection
     filter: $filter
     limit: $limit
@@ -559,16 +546,14 @@ query ClientsByUserIdAndLastName(
   ) {
     items {
       id
-      firstName
-      lastName
+      email
       properties {
         nextToken
       }
       userId
       user {
         id
-        firstName
-        lastName
+        email
         userTypeId
         createdAt
         updatedAt
@@ -612,8 +597,7 @@ query PropertiesByClientIdAndAddress(
       clientId
       client {
         id
-        firstName
-        lastName
+        email
         userId
         createdAt
         updatedAt

@@ -26,15 +26,13 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Clients", type = Model.Type.USER, version = 1, authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
-@Index(name = "byUser", fields = {"userId","lastName"})
+@Index(name = "byUser", fields = {"userId","email"})
 public final class Client implements Model {
   public static final QueryField ID = field("Client", "id");
-  public static final QueryField FIRST_NAME = field("Client", "firstName");
-  public static final QueryField LAST_NAME = field("Client", "lastName");
+  public static final QueryField EMAIL = field("Client", "email");
   public static final QueryField USER = field("Client", "userId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String", isRequired = true) String firstName;
-  private final @ModelField(targetType="String", isRequired = true) String lastName;
+  private final @ModelField(targetType="String", isRequired = true) String email;
   private final @ModelField(targetType="Property") @HasMany(associatedWith = "client", type = Property.class) List<Property> properties = null;
   private final @ModelField(targetType="User") @BelongsTo(targetName = "userId", targetNames = {"userId"}, type = User.class) User user;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
@@ -47,12 +45,8 @@ public final class Client implements Model {
       return id;
   }
   
-  public String getFirstName() {
-      return firstName;
-  }
-  
-  public String getLastName() {
-      return lastName;
+  public String getEmail() {
+      return email;
   }
   
   public List<Property> getProperties() {
@@ -71,10 +65,9 @@ public final class Client implements Model {
       return updatedAt;
   }
   
-  private Client(String id, String firstName, String lastName, User user) {
+  private Client(String id, String email, User user) {
     this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
+    this.email = email;
     this.user = user;
   }
   
@@ -87,8 +80,7 @@ public final class Client implements Model {
       } else {
       Client client = (Client) obj;
       return ObjectsCompat.equals(getId(), client.getId()) &&
-              ObjectsCompat.equals(getFirstName(), client.getFirstName()) &&
-              ObjectsCompat.equals(getLastName(), client.getLastName()) &&
+              ObjectsCompat.equals(getEmail(), client.getEmail()) &&
               ObjectsCompat.equals(getUser(), client.getUser()) &&
               ObjectsCompat.equals(getCreatedAt(), client.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), client.getUpdatedAt());
@@ -99,8 +91,7 @@ public final class Client implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getFirstName())
-      .append(getLastName())
+      .append(getEmail())
       .append(getUser())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -113,8 +104,7 @@ public final class Client implements Model {
     return new StringBuilder()
       .append("Client {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("firstName=" + String.valueOf(getFirstName()) + ", ")
-      .append("lastName=" + String.valueOf(getLastName()) + ", ")
+      .append("email=" + String.valueOf(getEmail()) + ", ")
       .append("user=" + String.valueOf(getUser()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -122,7 +112,7 @@ public final class Client implements Model {
       .toString();
   }
   
-  public static FirstNameStep builder() {
+  public static EmailStep builder() {
       return new Builder();
   }
   
@@ -138,24 +128,17 @@ public final class Client implements Model {
     return new Client(
       id,
       null,
-      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      firstName,
-      lastName,
+      email,
       user);
   }
-  public interface FirstNameStep {
-    LastNameStep firstName(String firstName);
-  }
-  
-
-  public interface LastNameStep {
-    BuildStep lastName(String lastName);
+  public interface EmailStep {
+    BuildStep email(String email);
   }
   
 
@@ -166,10 +149,9 @@ public final class Client implements Model {
   }
   
 
-  public static class Builder implements FirstNameStep, LastNameStep, BuildStep {
+  public static class Builder implements EmailStep, BuildStep {
     private String id;
-    private String firstName;
-    private String lastName;
+    private String email;
     private User user;
     @Override
      public Client build() {
@@ -177,22 +159,14 @@ public final class Client implements Model {
         
         return new Client(
           id,
-          firstName,
-          lastName,
+          email,
           user);
     }
     
     @Override
-     public LastNameStep firstName(String firstName) {
-        Objects.requireNonNull(firstName);
-        this.firstName = firstName;
-        return this;
-    }
-    
-    @Override
-     public BuildStep lastName(String lastName) {
-        Objects.requireNonNull(lastName);
-        this.lastName = lastName;
+     public BuildStep email(String email) {
+        Objects.requireNonNull(email);
+        this.email = email;
         return this;
     }
     
@@ -214,21 +188,15 @@ public final class Client implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String firstName, String lastName, User user) {
+    private CopyOfBuilder(String id, String email, User user) {
       super.id(id);
-      super.firstName(firstName)
-        .lastName(lastName)
+      super.email(email)
         .user(user);
     }
     
     @Override
-     public CopyOfBuilder firstName(String firstName) {
-      return (CopyOfBuilder) super.firstName(firstName);
-    }
-    
-    @Override
-     public CopyOfBuilder lastName(String lastName) {
-      return (CopyOfBuilder) super.lastName(lastName);
+     public CopyOfBuilder email(String email) {
+      return (CopyOfBuilder) super.email(email);
     }
     
     @Override
