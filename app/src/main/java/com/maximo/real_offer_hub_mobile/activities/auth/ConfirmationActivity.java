@@ -1,5 +1,7 @@
 package com.maximo.real_offer_hub_mobile.activities.auth;
 
+import static com.amplifyframework.core.Amplify.Auth;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -22,6 +24,17 @@ public class ConfirmationActivity extends AppCompatActivity {
         callingIntent = getIntent();
 
         setUpVerifyForm();
+        StringBuilder email = new StringBuilder();
+
+        Auth.getCurrentUser(
+                success->{
+                    email.append(success.toString());
+                    Log.i(TAG, "this is the email: " + email.toString());
+                },
+                failure->{
+                    Log.w(TAG, "username could not be found", failure);
+                }
+        );
     }
 
     public void setUpVerifyForm(){

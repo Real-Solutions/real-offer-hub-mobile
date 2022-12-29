@@ -3,7 +3,9 @@ package com.maximo.real_offer_hub_mobile.activities.auth;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,7 +20,9 @@ import com.maximo.real_offer_hub_mobile.databinding.ActivityLoginBinding;
 public class LoginActivity extends DrawerBaseActivity {
 
     public static final String TAG = "LoginActivity";
+    public static final String EMAIL_TAG = "email";
     ActivityLoginBinding activityLoginBinding;
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,7 @@ public class LoginActivity extends DrawerBaseActivity {
         activityLoginBinding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(activityLoginBinding.getRoot());
         allocateActivityTitle("Login");
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         setUpSignInForm();
     }
 
@@ -42,6 +47,7 @@ public class LoginActivity extends DrawerBaseActivity {
                     success -> {
                         Log.i(TAG, "Login successful: " + success);
                         Intent goToDashboardIntent = new Intent(this, DashboardActivity.class);
+                        goToDashboardIntent.putExtra(EMAIL_TAG, userEmail);
                         startActivity(goToDashboardIntent);
                     },
                     failure -> {
@@ -50,5 +56,9 @@ public class LoginActivity extends DrawerBaseActivity {
                     }
             );
         });
+    }
+
+    public void sharedPreferences(String userEmail){
+        String email = preferences.getString(EMAIL_TAG, userEmail);
     }
 }
