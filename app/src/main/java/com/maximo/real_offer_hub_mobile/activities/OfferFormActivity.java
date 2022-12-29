@@ -70,7 +70,7 @@ public class OfferFormActivity extends DrawerBaseActivity {
         );
 
         setupAddOfferButton();
-//        setupPropertySpinner(address);
+
     }
 
     public void setupPropertySpinner(ArrayList<String> address){
@@ -80,6 +80,7 @@ public class OfferFormActivity extends DrawerBaseActivity {
                 address
         ));
     }
+
 
     public void setupAddOfferButton(){
         Button addOfferButton = findViewById(R.id.OfferFormBtnSubmitOffer);
