@@ -45,6 +45,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ItemVH> {
         boolean isExpanded = this.state[position];
         holder.expandableLayout.setVisibility(isExpanded ? View.VISIBLE:View.GONE);
 
+
+
     }
 
     @Override

@@ -46,134 +46,148 @@
                     android:id="@+id/item_layoutTextViewDownPaymentTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
                     android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Down Payment:"
                     android:textColor="#fff"
-                    android:textSize="16dp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider2"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewDownPaymentValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:text="Down Payment Value"
                     android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewDownPaymentTitle"
-                    app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewDownPaymentTitle"
-                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewDownPaymentTitle" />
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
+                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewDownPaymentTitle"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewEarnestMoneyTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Earnest Money:"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider2"
                     app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewDownPaymentTitle" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewEarnestMoneyValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="16dp"
                     android:text="Earnest Money Value"
                     android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewEarnestMoneyTitle"
-                    app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewEarnestMoneyTitle"
-                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewEarnestMoneyTitle" />
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
+                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewEarnestMoneyTitle"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewLoanTypeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Loan Type:"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider2"
                     app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewEarnestMoneyTitle" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewLoanTypeValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="56dp"
+                    android:layout_marginStart="16dp"
                     android:text="Loan Type Value"
                     android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewLoanTypeTitle"
-                    app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewLoanTypeTitle"
-                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewLoanTypeTitle" />
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
+                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewLoanTypeTitle"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewBuyersAgentTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Buyer's Agent:"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider2"
                     app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewLoanTypeTitle" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewBuyersAgentValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
+                    android:layout_marginStart="16dp"
                     android:text="Buyer's Agent Value"
                     android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewBuyersAgentTitle"
-                    app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewBuyersAgentTitle"
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
                     app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewBuyersAgentTitle"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewResponseDateTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Response Date:"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider2"
                     app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewBuyersAgentTitle" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewResponseDateValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="16dp"
                     android:text="Response Date Value"
                     android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewResponseDateTitle"
-                    app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewResponseDateTitle"
-                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewResponseDateTitle" />
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
+                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewResponseDateTitle"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewResponseTimeTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Response Time:"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider2"
                     app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewResponseDateTitle" />
 
                 <TextView
@@ -183,46 +197,65 @@
                     android:layout_marginStart="16dp"
                     android:text="Response Time Value"
                     android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewResponseTimeTitle"
-                    app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewResponseTimeTitle"
-                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewResponseTimeTitle" />
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
+                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewResponseTimeTitle"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewCloseOfEscrowTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="68dp"
                     android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
                     android:text="Close of Escrow:"
                     android:textColor="#fff"
                     android:textSize="16dp"
                     android:textStyle="bold"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/divider2"
                     app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewResponseTimeTitle" />
 
                 <TextView
                     android:id="@+id/item_layoutTextViewCloseOfEscrowValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:layout_marginStart="16dp"
                     android:text="Close of Escrow Value"
                     android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewCloseOfEscrowTitle"
-                    app:layout_constraintStart_toEndOf="@+id/item_layoutTextViewCloseOfEscrowTitle"
-                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewCloseOfEscrowTitle" />
+                    app:layout_constraintStart_toEndOf="@+id/divider2"
+                    app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewCloseOfEscrowTitle"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <Button
                     android:id="@+id/item_layoutBtnSeeMoreOfferDetails"
                     android:layout_width="400dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="24dp"
+                    android:background="@drawable/blue_gradient"
                     android:backgroundTint="#00B5F8"
                     android:text="See More Offer Details"
-                    android:background="@drawable/blue_gradient"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.6"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewCloseOfEscrowTitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewCloseOfEscrowTitle"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="2dp"
+                    android:layout_height="220dp"
+                    android:background="?android:attr/listDivider"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
@@ -235,6 +268,30 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_baseline_house_24" />
+
+            <View
+                android:id="@+id/divider3"
+                android:layout_width="393dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="4dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_layoutTextViewProperty" />
+
+            <TextView
+                android:id="@+id/item_layoutTextViewOfferPriceValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:paddingBottom="18dp"
+                android:text="Offer Price"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/item_layoutTextViewProperty"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/item_layoutTextViewProperty" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
