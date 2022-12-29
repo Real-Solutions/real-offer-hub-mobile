@@ -7,7 +7,7 @@
     tools:context=".activities.OfferDetailActivity">
 
     <TextView
-        android:id="@+id/OfferDetailTextViewOfferDetails"
+        android:id="@+id/OfferDetailTextViewProperty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -26,8 +26,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/OfferDetailTextViewOfferDetails"
-        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewOfferDetails" />
+        app:layout_constraintStart_toEndOf="@+id/OfferDetailTextViewProperty"
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewProperty" />
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewDownPaymentTitle"
+        android:id="@+id/OfferDetailTextViewDownPaymentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toTopOf="@+id/divider4" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewEarnestMoneyTitle"
+        android:id="@+id/OfferDetailTextViewEarnestMoneyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -80,10 +80,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewDownPaymentTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewDownPaymentTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewLoanTypeTitle"
+        android:id="@+id/OfferDetailTextViewLoanTypeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -92,10 +92,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewEarnestMoneyTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewEarnestMoneyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewWaivingAppraisalTitle"
+        android:id="@+id/OfferDetailTextViewWaivingAppraisalTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -104,10 +104,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewLoanTypeTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewLoanTypeTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewBuyerContingencyTitle"
+        android:id="@+id/OfferDetailTextViewBuyerContingencyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -116,10 +116,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewWaivingAppraisalTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewWaivingAppraisalTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewHomeWarrantyTitle"
+        android:id="@+id/OfferDetailTextViewHomeWarrantyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -128,10 +128,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewBuyerContingencyTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewBuyerContingencyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewInspectionPeriodTitle"
+        android:id="@+id/OfferDetailTextViewInspectionPeriodTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -140,10 +140,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewHomeWarrantyTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewHomeWarrantyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewSellerConcessionsTItle"
+        android:id="@+id/OfferDetailTextViewSellerConcessionsTItle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -152,10 +152,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewInspectionPeriodTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewInspectionPeriodTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewPersonalPropertyTitle"
+        android:id="@+id/OfferDetailTextViewPersonalPropertyTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -164,10 +164,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewSellerConcessionsTItle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewSellerConcessionsTItle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewHOATitle"
+        android:id="@+id/OfferDetailTextViewHOATitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -176,10 +176,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewPersonalPropertyTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewPersonalPropertyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewBuyersAgentTitle"
+        android:id="@+id/OfferDetailTextViewBuyersAgentTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -188,10 +188,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewHOATitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewHOATitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewResponseDateTitle"
+        android:id="@+id/OfferDetailTextViewResponseDateTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -200,10 +200,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewBuyersAgentTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewBuyersAgentTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewResponseTimeTitle"
+        android:id="@+id/OfferDetailTextViewResponseTimeTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -212,10 +212,10 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewResponseDateTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewResponseDateTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewCloseOfEscrowTitle"
+        android:id="@+id/OfferDetailTextViewCloseOfEscrowTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -224,175 +224,175 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider4"
-        app:layout_constraintTop_toBottomOf="@+id/OfferFormTextViewResponseTimeTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewResponseTimeTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewDownPaymentValue"
+        android:id="@+id/OfferDetailTextViewDownPaymentValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Down Payment Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewDownPaymentTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewDownPaymentTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewDownPaymentTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewDownPaymentTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewEarnestMoneyValue"
+        android:id="@+id/OfferDetailTextViewEarnestMoneyValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Earnest Money Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewEarnestMoneyTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewEarnestMoneyTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewEarnestMoneyTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewEarnestMoneyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewLoanTypeValue"
+        android:id="@+id/OfferDetailTextViewLoanTypeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Loan Type Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewLoanTypeTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewLoanTypeTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewLoanTypeTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewLoanTypeTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewWaivingAppraisalValue"
+        android:id="@+id/OfferDetailTextViewWaivingAppraisalValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Waiving Appraisal Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewWaivingAppraisalTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewWaivingAppraisalTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewWaivingAppraisalTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewWaivingAppraisalTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewBuyerContingencyValue"
+        android:id="@+id/OfferDetailTextViewBuyerContingencyValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Buyer Contingency Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewBuyerContingencyTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewBuyerContingencyTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewBuyerContingencyTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewBuyerContingencyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewHomeWarrantyValue"
+        android:id="@+id/OfferDetailTextViewHomeWarrantyValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Home Warranty Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewHomeWarrantyTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewHomeWarrantyTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewHomeWarrantyTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewHomeWarrantyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewInspectionPeriodValue"
+        android:id="@+id/OfferDetailTextViewInspectionPeriodValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Inspection Period Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewInspectionPeriodTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewInspectionPeriodTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewInspectionPeriodTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewInspectionPeriodTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewSellerConcessionValue"
+        android:id="@+id/OfferDetailTextViewSellerConcessionValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Seller Concession Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewSellerConcessionsTItle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewSellerConcessionsTItle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewSellerConcessionsTItle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewSellerConcessionsTItle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewPersonalPropertyValue"
+        android:id="@+id/OfferDetailTextViewPersonalPropertyValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Personal Property Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewPersonalPropertyTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewPersonalPropertyTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewPersonalPropertyTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewPersonalPropertyTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewHOAValue"
+        android:id="@+id/OfferDetailTextViewHOAValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="HOA Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewHOATitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewHOATitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewHOATitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewHOATitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewBuyersAgentValue"
+        android:id="@+id/OfferDetailTextViewBuyersAgentValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Buyers Agent Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewBuyersAgentTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewBuyersAgentTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewBuyersAgentTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewBuyersAgentTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewResponseDateValue"
+        android:id="@+id/OfferDetailTextViewResponseDateValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Response Date Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewResponseDateTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewResponseDateTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewResponseDateTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewResponseDateTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewResponseTimeValue"
+        android:id="@+id/OfferDetailTextViewResponseTimeValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Response Time Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewResponseTimeTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewResponseTimeTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewResponseTimeTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewResponseTimeTitle" />
 
     <TextView
-        android:id="@+id/OfferFormTextViewCloseOfEscrowValue"
+        android:id="@+id/OfferDetailTextViewCloseOfEscrowValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Close of Escrow Value"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/OfferFormTextViewCloseOfEscrowTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/OfferDetailTextViewCloseOfEscrowTitle"
         app:layout_constraintStart_toEndOf="@+id/divider4"
-        app:layout_constraintTop_toTopOf="@+id/OfferFormTextViewCloseOfEscrowTitle" />
+        app:layout_constraintTop_toTopOf="@+id/OfferDetailTextViewCloseOfEscrowTitle" />
 
     <View
         android:id="@+id/divider5"
