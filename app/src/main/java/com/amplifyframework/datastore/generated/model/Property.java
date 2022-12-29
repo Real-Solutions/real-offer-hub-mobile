@@ -26,7 +26,7 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 @ModelConfig(pluralName = "Properties", type = Model.Type.USER, version = 1, authRules = {
   @AuthRule(allow = AuthStrategy.PUBLIC, operations = { ModelOperation.CREATE, ModelOperation.UPDATE, ModelOperation.DELETE, ModelOperation.READ })
 })
-@Index(name = "byClient", fields = {"clientId","address"})
+@Index(name = "byUser", fields = {"userId","address"})
 public final class Property implements Model {
   public static final QueryField ID = field("Property", "id");
   public static final QueryField ADDRESS = field("Property", "address");
@@ -38,7 +38,7 @@ public final class Property implements Model {
   public static final QueryField YEAR_BUILT = field("Property", "yearBuilt");
   public static final QueryField PRICE_STRING = field("Property", "priceString");
   public static final QueryField SQUARE_FOOTAGE_STRING = field("Property", "squareFootageString");
-  public static final QueryField CLIENT = field("Property", "clientId");
+  public static final QueryField USER = field("Property", "userId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String address;
   private final @ModelField(targetType="Float", isRequired = true) Double price;
@@ -50,7 +50,7 @@ public final class Property implements Model {
   private final @ModelField(targetType="String") String priceString;
   private final @ModelField(targetType="String") String squareFootageString;
   private final @ModelField(targetType="Offer") @HasMany(associatedWith = "property", type = Offer.class) List<Offer> offers = null;
-  private final @ModelField(targetType="Client") @BelongsTo(targetName = "clientId", targetNames = {"clientId"}, type = Client.class) Client client;
+  private final @ModelField(targetType="User") @BelongsTo(targetName = "userId", targetNames = {"userId"}, type = User.class) User user;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
   public String resolveIdentifier() {
@@ -101,8 +101,8 @@ public final class Property implements Model {
       return offers;
   }
   
-  public Client getClient() {
-      return client;
+  public User getUser() {
+      return user;
   }
   
   public Temporal.DateTime getCreatedAt() {
@@ -113,7 +113,7 @@ public final class Property implements Model {
       return updatedAt;
   }
   
-  private Property(String id, String address, Double price, Temporal.Date initialPosting, Integer numberOfRooms, Integer numberOfBathrooms, Double squareFootage, Integer yearBuilt, String priceString, String squareFootageString, Client client) {
+  private Property(String id, String address, Double price, Temporal.Date initialPosting, Integer numberOfRooms, Integer numberOfBathrooms, Double squareFootage, Integer yearBuilt, String priceString, String squareFootageString, User user) {
     this.id = id;
     this.address = address;
     this.price = price;
@@ -124,7 +124,7 @@ public final class Property implements Model {
     this.yearBuilt = yearBuilt;
     this.priceString = priceString;
     this.squareFootageString = squareFootageString;
-    this.client = client;
+    this.user = user;
   }
   
   @Override
@@ -145,7 +145,7 @@ public final class Property implements Model {
               ObjectsCompat.equals(getYearBuilt(), property.getYearBuilt()) &&
               ObjectsCompat.equals(getPriceString(), property.getPriceString()) &&
               ObjectsCompat.equals(getSquareFootageString(), property.getSquareFootageString()) &&
-              ObjectsCompat.equals(getClient(), property.getClient()) &&
+              ObjectsCompat.equals(getUser(), property.getUser()) &&
               ObjectsCompat.equals(getCreatedAt(), property.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), property.getUpdatedAt());
       }
@@ -164,7 +164,7 @@ public final class Property implements Model {
       .append(getYearBuilt())
       .append(getPriceString())
       .append(getSquareFootageString())
-      .append(getClient())
+      .append(getUser())
       .append(getCreatedAt())
       .append(getUpdatedAt())
       .toString()
@@ -185,7 +185,7 @@ public final class Property implements Model {
       .append("yearBuilt=" + String.valueOf(getYearBuilt()) + ", ")
       .append("priceString=" + String.valueOf(getPriceString()) + ", ")
       .append("squareFootageString=" + String.valueOf(getSquareFootageString()) + ", ")
-      .append("client=" + String.valueOf(getClient()) + ", ")
+      .append("user=" + String.valueOf(getUser()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
       .append("}")
@@ -231,7 +231,7 @@ public final class Property implements Model {
       yearBuilt,
       priceString,
       squareFootageString,
-      client);
+      user);
   }
   public interface AddressStep {
     PriceStep address(String address);
@@ -273,7 +273,7 @@ public final class Property implements Model {
     BuildStep id(String id);
     BuildStep priceString(String priceString);
     BuildStep squareFootageString(String squareFootageString);
-    BuildStep client(Client client);
+    BuildStep user(User user);
   }
   
 
@@ -288,7 +288,7 @@ public final class Property implements Model {
     private Integer yearBuilt;
     private String priceString;
     private String squareFootageString;
-    private Client client;
+    private User user;
     @Override
      public Property build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -304,7 +304,7 @@ public final class Property implements Model {
           yearBuilt,
           priceString,
           squareFootageString,
-          client);
+          user);
     }
     
     @Override
@@ -369,8 +369,8 @@ public final class Property implements Model {
     }
     
     @Override
-     public BuildStep client(Client client) {
-        this.client = client;
+     public BuildStep user(User user) {
+        this.user = user;
         return this;
     }
     
@@ -386,7 +386,7 @@ public final class Property implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String address, Double price, Temporal.Date initialPosting, Integer numberOfRooms, Integer numberOfBathrooms, Double squareFootage, Integer yearBuilt, String priceString, String squareFootageString, Client client) {
+    private CopyOfBuilder(String id, String address, Double price, Temporal.Date initialPosting, Integer numberOfRooms, Integer numberOfBathrooms, Double squareFootage, Integer yearBuilt, String priceString, String squareFootageString, User user) {
       super.id(id);
       super.address(address)
         .price(price)
@@ -397,7 +397,7 @@ public final class Property implements Model {
         .yearBuilt(yearBuilt)
         .priceString(priceString)
         .squareFootageString(squareFootageString)
-        .client(client);
+        .user(user);
     }
     
     @Override
@@ -446,8 +446,8 @@ public final class Property implements Model {
     }
     
     @Override
-     public CopyOfBuilder client(Client client) {
-      return (CopyOfBuilder) super.client(client);
+     public CopyOfBuilder user(User user) {
+      return (CopyOfBuilder) super.user(user);
     }
   }
   

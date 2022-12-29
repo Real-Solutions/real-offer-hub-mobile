@@ -35,7 +35,7 @@ public final class User implements Model {
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String email;
   private final @ModelField(targetType="String", isRequired = true) String cognitoID;
-  private final @ModelField(targetType="Client") @HasMany(associatedWith = "user", type = Client.class) List<Client> clients = null;
+  private final @ModelField(targetType="Property") @HasMany(associatedWith = "user", type = Property.class) List<Property> properties = null;
   private final @ModelField(targetType="UserType") @BelongsTo(targetName = "userTypeId", targetNames = {"userTypeId"}, type = UserType.class) UserType userType;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
@@ -55,8 +55,8 @@ public final class User implements Model {
       return cognitoID;
   }
   
-  public List<Client> getClients() {
-      return clients;
+  public List<Property> getProperties() {
+      return properties;
   }
   
   public UserType getUserType() {
