@@ -18,4 +18,5 @@ public class ClientsActivity extends DrawerBaseActivity {
         setContentView(activityClientsBinding.getRoot());
         allocateActivityTitle("Clients");
     }
+
 }
