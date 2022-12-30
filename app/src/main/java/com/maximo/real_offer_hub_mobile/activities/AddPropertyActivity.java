@@ -1,7 +1,10 @@
 package com.maximo.real_offer_hub_mobile.activities;
 
+import static com.amplifyframework.core.Amplify.Auth;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -25,6 +28,7 @@ public class AddPropertyActivity extends DrawerBaseActivity {
     public final static String TAG = "AddPropertyActivity";
     User user;
     ActivityAddPropertyBinding activityAddPropertyBinding;
+    String cognitoID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,22 +36,34 @@ public class AddPropertyActivity extends DrawerBaseActivity {
         activityAddPropertyBinding = ActivityAddPropertyBinding.inflate(getLayoutInflater());
         setContentView(activityAddPropertyBinding.getRoot());
         allocateActivityTitle("Add Property");
-        offerTest();
+        getCognitoID();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         setupAddPropertyButton();
+        setCurrentUser();
     }
 
-    private void offerTest(){
+    private void getCognitoID(){
+        Auth.getCurrentUser(
+                success->{
+                    cognitoID = success.getUserId();
+                },
+                failure->{
+                    Log.w(TAG, "username could not be found", failure);
+                }
+        );
+    }
+
+    private void setCurrentUser(){
         Amplify.API.query(
                 ModelQuery.list(User.class),
                 success -> {
                     Log.i(TAG, "Added Offers Successfully");
                     for (User ur : success.getData()) {
-                        user = ur;
+                        if(cognitoID.equals(ur.getCognitoId())) user = ur;
                     }
                 },
 
@@ -59,8 +75,10 @@ public class AddPropertyActivity extends DrawerBaseActivity {
 
     private void setupAddPropertyButton(){
         Button addPropertyButton = findViewById(R.id.AddPropertyBtnAddProperty);
-        addPropertyButton.setOnClickListener(view ->
-                setupSavePropertyButton()
+        addPropertyButton.setOnClickListener(view ->{
+                setupSavePropertyButton();
+                startActivity(new Intent(this, DashboardActivity.class));
+        }
         );
     }
 
