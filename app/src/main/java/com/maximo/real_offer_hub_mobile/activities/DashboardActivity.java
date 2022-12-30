@@ -83,7 +83,7 @@ public class DashboardActivity extends DrawerBaseActivity {
 //        getDataFromDB();
         setupRecyclerView();
 
-        dataTestButton();
+
         addPropertyButton();
 
         new Timer().schedule(new TimerTask() {
@@ -167,13 +167,7 @@ public class DashboardActivity extends DrawerBaseActivity {
 
     }
 
-    public void dataTestButton(){
-        Button test = DashboardActivity.this.findViewById(R.id.buttonTest);
-        test.setOnClickListener(view -> {
-            Intent goToTest = new Intent(this, DataTest.class);
-            startActivity(goToTest);
-        });
-    }
+
 
 //    private void getData() {
 //        modelList = new ArrayList<>();

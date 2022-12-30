@@ -46,7 +46,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:text="Version:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider10"
         app:layout_constraintTop_toBottomOf="@+id/divider9" />
@@ -57,8 +57,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="Last Updated:"
-        android:textSize="20sp"
+        android:text="Updated:"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider10"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewVersionNumberTitle" />
@@ -70,7 +70,6 @@
         android:layout_marginStart="16dp"
         android:text="Real Solutions LLC"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewCompanyTitle"
         app:layout_constraintStart_toEndOf="@+id/divider10"
         app:layout_constraintTop_toTopOf="@+id/AboutTextViewCompanyTitle" />
@@ -82,7 +81,6 @@
         android:layout_marginStart="16dp"
         android:text="Phoenix, AZ"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewLocation"
         app:layout_constraintStart_toEndOf="@+id/divider10"
         app:layout_constraintTop_toTopOf="@+id/AboutTextViewLocation" />
@@ -95,7 +93,6 @@
         android:text="Maximo VincenteMejia"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/AboutTextViewMaxTitleSoftwareDeveloper"
         app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toTopOf="@+id/AboutImageViewMax" />
 
@@ -104,11 +101,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
         android:text="Austin Limanek"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/AboutTextViewAustinTitleSoftwareEngineer"
         app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toTopOf="@+id/AboutImageViewAustin" />
 
@@ -117,11 +112,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
         android:text="Mathew Torres"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/AboutTextViewSoftwareDeveloper"
         app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toTopOf="@+id/AboutImageViewMat" />
 
@@ -131,7 +124,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Software Developer"
-        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMax"
         app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMaximoName" />
 
@@ -141,7 +133,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Software Engineer"
-        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewAustin"
         app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAustinName" />
 
@@ -151,7 +142,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="Software Developer"
-        app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMat"
         app:layout_constraintStart_toEndOf="@+id/divider13"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMathewName" />
 
@@ -159,44 +149,45 @@
         android:id="@+id/AboutTextViewTitleCOO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:text="COO"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMax"
-        app:layout_constraintEnd_toStartOf="@+id/AboutImageViewMax"
-        app:layout_constraintTop_toTopOf="@+id/AboutImageViewMax" />
+        app:layout_constraintStart_toEndOf="@+id/divider13"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewMaxTitleSoftwareDeveloper" />
 
     <TextView
         android:id="@+id/AboutTextViewTitleCTO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:text="CTO"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewAustin"
-        app:layout_constraintEnd_toStartOf="@+id/AboutImageViewAustin"
-        app:layout_constraintTop_toTopOf="@+id/AboutImageViewAustin" />
+        app:layout_constraintStart_toEndOf="@+id/divider13"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewAustinTitleSoftwareEngineer" />
 
     <TextView
         android:id="@+id/AboutTextViewTitleCEO"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:text="CEO"
-        android:textSize="20sp"
-        android:textStyle="bold"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/AboutImageViewMat"
-        app:layout_constraintEnd_toStartOf="@+id/AboutImageViewMat"
-        app:layout_constraintTop_toTopOf="@+id/AboutImageViewMat" />
+        app:layout_constraintStart_toEndOf="@+id/divider13"
+        app:layout_constraintTop_toBottomOf="@+id/AboutTextViewSoftwareDeveloper" />
 
     <TextView
         android:id="@+id/AboutTextViewAboutTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:text="About Offer Hub Mobile"
+        android:layout_marginEnd="200dp"
+        android:text="About Offer Hub"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -216,6 +207,7 @@
         android:id="@+id/divider10"
         android:layout_width="1dp"
         android:layout_height="180dp"
+        android:layout_marginEnd="200dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -228,7 +220,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Company:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider10"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewLastUpdatedDateTitle" />
@@ -240,7 +232,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:text="Location:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/divider10"
         app:layout_constraintTop_toBottomOf="@+id/AboutTextViewCompanyTitle" />
@@ -252,7 +244,6 @@
         android:layout_marginStart="16dp"
         android:text="1.0"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewVersionNumberTitle"
         app:layout_constraintStart_toEndOf="@+id/divider10"
         app:layout_constraintTop_toTopOf="@+id/AboutTextViewVersionNumberTitle" />
@@ -264,7 +255,6 @@
         android:layout_marginStart="16dp"
         android:text="December 2022"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/AboutTextViewLastUpdatedDateTitle"
         app:layout_constraintStart_toEndOf="@+id/divider10"
         app:layout_constraintTop_toTopOf="@+id/AboutTextViewLastUpdatedDateTitle" />
@@ -282,10 +272,13 @@
         android:id="@+id/AboutTextViewTheTeam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginBottom="8dp"
         android:text="The Team"
         android:textSize="20sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/divider13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider10" />
@@ -303,6 +296,7 @@
         android:id="@+id/divider13"
         android:layout_width="1dp"
         android:layout_height="265dp"
+        android:layout_marginEnd="200dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
