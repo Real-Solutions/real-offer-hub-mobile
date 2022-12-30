@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
     tools:context=".activities.OfferDetailActivity">
 
     <TextView
@@ -441,15 +448,17 @@
         app:layout_constraintStart_toEndOf="@+id/OfferDetailBtnCounter"
         app:layout_constraintTop_toBottomOf="@+id/OfferDetailTextViewOfferSubmissionCommentsValue" />
 
-    <Button
-        android:id="@+id/OfferDetailBtnCounter"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:text="Counter"
-        android:backgroundTint="#FF9800"
-        app:layout_constraintEnd_toStartOf="@+id/OfferDetailBtnAccept"
-        app:layout_constraintStart_toEndOf="@+id/OfferDetailBtnReject"
-        app:layout_constraintTop_toTopOf="@+id/OfferDetailBtnAccept" />
+        <Button
+            android:id="@+id/OfferDetailBtnCounter"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="64dp"
+            android:backgroundTint="#FF9800"
+            android:text="Counter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/OfferDetailBtnAccept"
+            app:layout_constraintStart_toEndOf="@+id/OfferDetailBtnReject"
+            app:layout_constraintTop_toTopOf="@+id/OfferDetailBtnAccept" />
 
     <Button
         android:id="@+id/OfferDetailBtnReject"
@@ -461,3 +470,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/OfferDetailBtnCounter" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
