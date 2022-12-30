@@ -1,5 +1,7 @@
 package com.maximo.real_offer_hub_mobile.activities;
 
+import static com.amplifyframework.core.Amplify.Auth;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
@@ -9,9 +11,11 @@ import com.amplifyframework.core.model.temporal.Temporal;
 import com.amplifyframework.datastore.generated.model.Client;
 import com.amplifyframework.datastore.generated.model.Offer;
 import com.amplifyframework.datastore.generated.model.Property;
+import com.amplifyframework.datastore.generated.model.User;
 import com.maximo.real_offer_hub_mobile.R;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityOfferFormBinding;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -35,6 +39,7 @@ public class OfferFormActivity extends DrawerBaseActivity {
     ActivityOfferFormBinding activityOfferFormBinding;
     ArrayList<String> address = new ArrayList<>();
     ArrayList<Property> properties = new ArrayList<>();
+    String cognitoID;
 
 
     @Override
@@ -44,18 +49,24 @@ public class OfferFormActivity extends DrawerBaseActivity {
         setContentView(activityOfferFormBinding.getRoot());
         allocateActivityTitle("Submit Offer");
         propertiesSpinner = findViewById(R.id.OfferFormSpinnerPropertyAddress);
+        getCognitoID();
 
         Amplify.API.query(
-                ModelQuery.list(Client.class),
+                ModelQuery.list(User.class),
                 success -> {
                     Log.i(TAG, "Added Offers Successfully");
+                    User currentUser = null;
 
-                    for (Client client: success.getData()) {
-                        properties.addAll(client.getProperties());
-                        for (Property property : client.getProperties()){
-                            address.add(property.getAddress());
-                        }
+                    for (User user: success.getData()) {
+                        if(cognitoID.equals(user.getCognitoId())) currentUser = user;
                     }
+
+                    properties.addAll(currentUser.getProperties());
+
+                    for (Property property : currentUser.getProperties()){
+                        address.add(property.getAddress());
+                    }
+
                     propertiesFuture.complete(properties);
                     runOnUiThread(() -> {
                         setupPropertySpinner(address);
@@ -71,6 +82,17 @@ public class OfferFormActivity extends DrawerBaseActivity {
 
         setupAddOfferButton();
 
+    }
+
+    private void getCognitoID(){
+        Auth.getCurrentUser(
+                success->{
+                    cognitoID = success.getUserId();
+                },
+                failure->{
+                    Log.w(TAG, "username could not be found", failure);
+                }
+        );
     }
 
     public void setupPropertySpinner(ArrayList<String> address){
@@ -132,6 +154,8 @@ public class OfferFormActivity extends DrawerBaseActivity {
             );
 
             Toast.makeText(this, "Offer Saved!", Toast.LENGTH_SHORT).show();
+
+            startActivity(new Intent(this, DashboardActivity.class));
         });
     }
 }
