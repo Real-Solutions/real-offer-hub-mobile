@@ -41,7 +41,7 @@ public class NewClientSignUpActivity extends DrawerBaseActivity {
 
         Auth.getCurrentUser(
                 success->{
-                    email.append(success.toString());
+                    email.append(success.getUserId());
                     Log.i(TAG, "this is the email: " + email.toString());
                 },
                 failure->{

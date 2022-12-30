@@ -30,10 +30,12 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 public final class User implements Model {
   public static final QueryField ID = field("User", "id");
   public static final QueryField EMAIL = field("User", "email");
+  public static final QueryField COGNITO_ID = field("User", "cognitoID");
   public static final QueryField USER_TYPE = field("User", "userTypeId");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String", isRequired = true) String email;
-  private final @ModelField(targetType="Client") @HasMany(associatedWith = "user", type = Client.class) List<Client> clients = null;
+  private final @ModelField(targetType="String", isRequired = true) String cognitoID;
+  private final @ModelField(targetType="Property") @HasMany(associatedWith = "user", type = Property.class) List<Property> properties = null;
   private final @ModelField(targetType="UserType") @BelongsTo(targetName = "userTypeId", targetNames = {"userTypeId"}, type = UserType.class) UserType userType;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime createdAt;
   private @ModelField(targetType="AWSDateTime", isReadOnly = true) Temporal.DateTime updatedAt;
@@ -49,8 +51,12 @@ public final class User implements Model {
       return email;
   }
   
-  public List<Client> getClients() {
-      return clients;
+  public String getCognitoId() {
+      return cognitoID;
+  }
+  
+  public List<Property> getProperties() {
+      return properties;
   }
   
   public UserType getUserType() {
@@ -65,9 +71,10 @@ public final class User implements Model {
       return updatedAt;
   }
   
-  private User(String id, String email, UserType userType) {
+  private User(String id, String email, String cognitoID, UserType userType) {
     this.id = id;
     this.email = email;
+    this.cognitoID = cognitoID;
     this.userType = userType;
   }
   
@@ -81,6 +88,7 @@ public final class User implements Model {
       User user = (User) obj;
       return ObjectsCompat.equals(getId(), user.getId()) &&
               ObjectsCompat.equals(getEmail(), user.getEmail()) &&
+              ObjectsCompat.equals(getCognitoId(), user.getCognitoId()) &&
               ObjectsCompat.equals(getUserType(), user.getUserType()) &&
               ObjectsCompat.equals(getCreatedAt(), user.getCreatedAt()) &&
               ObjectsCompat.equals(getUpdatedAt(), user.getUpdatedAt());
@@ -92,6 +100,7 @@ public final class User implements Model {
     return new StringBuilder()
       .append(getId())
       .append(getEmail())
+      .append(getCognitoId())
       .append(getUserType())
       .append(getCreatedAt())
       .append(getUpdatedAt())
@@ -105,6 +114,7 @@ public final class User implements Model {
       .append("User {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("email=" + String.valueOf(getEmail()) + ", ")
+      .append("cognitoID=" + String.valueOf(getCognitoId()) + ", ")
       .append("userType=" + String.valueOf(getUserType()) + ", ")
       .append("createdAt=" + String.valueOf(getCreatedAt()) + ", ")
       .append("updatedAt=" + String.valueOf(getUpdatedAt()))
@@ -128,6 +138,7 @@ public final class User implements Model {
     return new User(
       id,
       null,
+      null,
       null
     );
   }
@@ -135,10 +146,16 @@ public final class User implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       email,
+      cognitoID,
       userType);
   }
   public interface EmailStep {
-    BuildStep email(String email);
+    CognitoIdStep email(String email);
+  }
+  
+
+  public interface CognitoIdStep {
+    BuildStep cognitoId(String cognitoId);
   }
   
 
@@ -149,9 +166,10 @@ public final class User implements Model {
   }
   
 
-  public static class Builder implements EmailStep, BuildStep {
+  public static class Builder implements EmailStep, CognitoIdStep, BuildStep {
     private String id;
     private String email;
+    private String cognitoID;
     private UserType userType;
     @Override
      public User build() {
@@ -160,13 +178,21 @@ public final class User implements Model {
         return new User(
           id,
           email,
+          cognitoID,
           userType);
     }
     
     @Override
-     public BuildStep email(String email) {
+     public CognitoIdStep email(String email) {
         Objects.requireNonNull(email);
         this.email = email;
+        return this;
+    }
+    
+    @Override
+     public BuildStep cognitoId(String cognitoId) {
+        Objects.requireNonNull(cognitoId);
+        this.cognitoID = cognitoId;
         return this;
     }
     
@@ -188,15 +214,21 @@ public final class User implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String email, UserType userType) {
+    private CopyOfBuilder(String id, String email, String cognitoId, UserType userType) {
       super.id(id);
       super.email(email)
+        .cognitoId(cognitoId)
         .userType(userType);
     }
     
     @Override
      public CopyOfBuilder email(String email) {
       return (CopyOfBuilder) super.email(email);
+    }
+    
+    @Override
+     public CopyOfBuilder cognitoId(String cognitoId) {
+      return (CopyOfBuilder) super.cognitoId(cognitoId);
     }
     
     @Override

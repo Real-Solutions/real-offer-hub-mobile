@@ -10,6 +10,7 @@ mutation CreateUserType(
       items {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -31,6 +32,7 @@ mutation UpdateUserType(
       items {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -52,6 +54,7 @@ mutation DeleteUserType(
       items {
         id
         email
+        cognitoID
         userTypeId
         createdAt
         updatedAt
@@ -69,10 +72,19 @@ mutation CreateUser(
   createUser(input: $input, condition: $condition) {
     id
     email
-    clients {
+    cognitoID
+    properties {
       items {
         id
-        email
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
         userId
         createdAt
         updatedAt
@@ -100,10 +112,19 @@ mutation UpdateUser(
   updateUser(input: $input, condition: $condition) {
     id
     email
-    clients {
+    cognitoID
+    properties {
       items {
         id
-        email
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
         userId
         createdAt
         updatedAt
@@ -131,10 +152,19 @@ mutation DeleteUser(
   deleteUser(input: $input, condition: $condition) {
     id
     email
-    clients {
+    cognitoID
+    properties {
       items {
         id
-        email
+        address
+        price
+        initialPosting
+        numberOfRooms
+        numberOfBathrooms
+        squareFootage
+        yearBuilt
+        priceString
+        squareFootageString
         userId
         createdAt
         updatedAt
@@ -147,144 +177,6 @@ mutation DeleteUser(
       type
       users {
         nextToken
-      }
-      createdAt
-      updatedAt
-    }
-    createdAt
-    updatedAt
-  }
-}
-mutation CreateClient(
-  $input: CreateClientInput!
-  $condition: ModelClientConditionInput
-) {
-  createClient(input: $input, condition: $condition) {
-    id
-    email
-    properties {
-      items {
-        id
-        address
-        price
-        initialPosting
-        numberOfRooms
-        numberOfBathrooms
-        squareFootage
-        yearBuilt
-        priceString
-        squareFootageString
-        clientId
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    userId
-    user {
-      id
-      email
-      clients {
-        nextToken
-      }
-      userTypeId
-      userType {
-        id
-        type
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-    createdAt
-    updatedAt
-  }
-}
-mutation UpdateClient(
-  $input: UpdateClientInput!
-  $condition: ModelClientConditionInput
-) {
-  updateClient(input: $input, condition: $condition) {
-    id
-    email
-    properties {
-      items {
-        id
-        address
-        price
-        initialPosting
-        numberOfRooms
-        numberOfBathrooms
-        squareFootage
-        yearBuilt
-        priceString
-        squareFootageString
-        clientId
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    userId
-    user {
-      id
-      email
-      clients {
-        nextToken
-      }
-      userTypeId
-      userType {
-        id
-        type
-        createdAt
-        updatedAt
-      }
-      createdAt
-      updatedAt
-    }
-    createdAt
-    updatedAt
-  }
-}
-mutation DeleteClient(
-  $input: DeleteClientInput!
-  $condition: ModelClientConditionInput
-) {
-  deleteClient(input: $input, condition: $condition) {
-    id
-    email
-    properties {
-      items {
-        id
-        address
-        price
-        initialPosting
-        numberOfRooms
-        numberOfBathrooms
-        squareFootage
-        yearBuilt
-        priceString
-        squareFootageString
-        clientId
-        createdAt
-        updatedAt
-      }
-      nextToken
-    }
-    userId
-    user {
-      id
-      email
-      clients {
-        nextToken
-      }
-      userTypeId
-      userType {
-        id
-        type
-        createdAt
-        updatedAt
       }
       createdAt
       updatedAt
@@ -342,18 +234,18 @@ mutation CreateProperty(
       }
       nextToken
     }
-    clientId
-    client {
+    userId
+    user {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
-      userId
-      user {
+      userTypeId
+      userType {
         id
-        email
-        userTypeId
+        type
         createdAt
         updatedAt
       }
@@ -413,18 +305,18 @@ mutation UpdateProperty(
       }
       nextToken
     }
-    clientId
-    client {
+    userId
+    user {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
-      userId
-      user {
+      userTypeId
+      userType {
         id
-        email
-        userTypeId
+        type
         createdAt
         updatedAt
       }
@@ -484,18 +376,18 @@ mutation DeleteProperty(
       }
       nextToken
     }
-    clientId
-    client {
+    userId
+    user {
       id
       email
+      cognitoID
       properties {
         nextToken
       }
-      userId
-      user {
+      userTypeId
+      userType {
         id
-        email
-        userTypeId
+        type
         createdAt
         updatedAt
       }
@@ -563,11 +455,12 @@ mutation CreateOffer(
       offers {
         nextToken
       }
-      clientId
-      client {
+      userId
+      user {
         id
         email
-        userId
+        cognitoID
+        userTypeId
         createdAt
         updatedAt
       }
@@ -635,11 +528,12 @@ mutation UpdateOffer(
       offers {
         nextToken
       }
-      clientId
-      client {
+      userId
+      user {
         id
         email
-        userId
+        cognitoID
+        userTypeId
         createdAt
         updatedAt
       }
@@ -707,11 +601,12 @@ mutation DeleteOffer(
       offers {
         nextToken
       }
-      clientId
-      client {
+      userId
+      user {
         id
         email
-        userId
+        cognitoID
+        userTypeId
         createdAt
         updatedAt
       }
@@ -773,7 +668,7 @@ mutation CreateMessage(
         yearBuilt
         priceString
         squareFootageString
-        clientId
+        userId
         createdAt
         updatedAt
       }
@@ -835,7 +730,7 @@ mutation UpdateMessage(
         yearBuilt
         priceString
         squareFootageString
-        clientId
+        userId
         createdAt
         updatedAt
       }
@@ -897,7 +792,7 @@ mutation DeleteMessage(
         yearBuilt
         priceString
         squareFootageString
-        clientId
+        userId
         createdAt
         updatedAt
       }

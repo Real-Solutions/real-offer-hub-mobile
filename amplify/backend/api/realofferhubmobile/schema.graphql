@@ -9,19 +9,11 @@ type UserType @model @auth(rules: [{allow: public}]){
 type User @model @auth(rules: [{allow: public}]){
   id: ID!
   email: String!
-  clients: [Client] @hasMany(indexName: "byUser", fields:["id"])
+  cognitoID: String!
+  properties: [Property] @hasMany(indexName: "byUser", fields:["id"])
 
   userTypeId: ID! @index(name: "byUserType", sortKeyFields: ["email"])
   userType: UserType @belongsTo(fields: ["userTypeId"])
-}
-
-type Client @model @auth(rules: [{allow: public}]){
-    id: ID!
-    email: String!
-    properties: [Property] @hasMany(indexName: "byClient", fields:["id"])
-
-    userId: ID! @index(name: "byUser", sortKeyFields: ["email"])
-    user: User @belongsTo(fields: ["userId"])
 }
 
 type Property @model @auth(rules: [{allow: public}]){
@@ -37,8 +29,8 @@ type Property @model @auth(rules: [{allow: public}]){
     squareFootageString: String
     offers: [Offer] @hasMany(indexName: "byProperty", fields:["id"])
 
-    clientId: ID! @index(name: "byClient", sortKeyFields: ["address"])
-    client: Client @belongsTo(fields: ["clientId"])
+    userId: ID! @index(name: "byUser", sortKeyFields: ["address"])
+    user: User @belongsTo(fields: ["userId"])
 }
 
 type Offer @model @auth(rules: [{allow: public}]){
