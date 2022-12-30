@@ -6,4 +6,81 @@
     android:layout_height="match_parent"
     tools:context=".activities.SupportActivity">
 
+    <TextView
+        android:id="@+id/SupportTextViewSupport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="200dp"
+        android:text="Support"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider15"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SupportTextViewSupport" />
+
+    <View
+        android:id="@+id/divider16"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="200dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider15" />
+
+    <TextView
+        android:id="@+id/SupportTextViewEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:text="Email:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/divider16"
+        app:layout_constraintTop_toBottomOf="@+id/divider15" />
+
+    <TextView
+        android:id="@+id/SupportTextViewWeb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="Web:"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/divider16"
+        app:layout_constraintTop_toBottomOf="@+id/SupportTextViewEmail" />
+
+    <TextView
+        android:id="@+id/SupportTextViewEmailAddressValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="support@realsolutions.io"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/SupportTextViewEmail"
+        app:layout_constraintStart_toEndOf="@+id/divider16"
+        app:layout_constraintTop_toTopOf="@+id/SupportTextViewEmail" />
+
+    <TextView
+        android:id="@+id/SupportTextViewWebAddressValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="realsolutions.io"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/SupportTextViewWeb"
+        app:layout_constraintStart_toEndOf="@+id/divider16"
+        app:layout_constraintTop_toTopOf="@+id/SupportTextViewWeb" />
 </androidx.constraintlayout.widget.ConstraintLayout>

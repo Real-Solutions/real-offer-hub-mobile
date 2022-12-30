@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
+        android:layout_marginEnd="180dp"
         android:text="User Profile"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -31,6 +32,7 @@
         android:id="@+id/divider8"
         android:layout_width="1dp"
         android:layout_height="600dp"
+        android:layout_marginEnd="180dp"
         android:background="?android:attr/listDivider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,120 +42,120 @@
         android:id="@+id/UserProfileTextViewFirstNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
         android:text="First Name:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider7" />
 
     <TextView
         android:id="@+id/UserProfileTextViewLastNameTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="Last Name:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewFirstNameTitle" />
 
     <TextView
         android:id="@+id/UserProfileTextViewPhoneTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="Phone:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewLastNameTitle" />
 
     <TextView
         android:id="@+id/UserProfileTextViewEmailTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="Email:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewPhoneTitle" />
 
     <TextView
         android:id="@+id/UserProfileTextViewPasswordTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="Password:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewEmailTitle" />
 
     <TextView
         android:id="@+id/UserProfileTextViewBrokerageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
         android:text="Brokerage:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewPasswordTitle" />
 
     <TextView
         android:id="@+id/UserProfileTextViewBrokerageAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="Address:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewBrokerageTitle" />
 
     <TextView
         android:id="@+id/UserProfileTextViewBrokerageCity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="City:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewBrokerageAddress" />
 
     <TextView
         android:id="@+id/UserProfileTextViewBrokerageState"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="State:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewBrokerageCity" />
 
     <TextView
         android:id="@+id/UserProfileTextViewBrokerageZip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
         android:text="Zip:"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/divider8"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/UserProfileTextViewBrokerageState" />
 
     <TextView
@@ -163,7 +165,6 @@
         android:layout_marginStart="16dp"
         android:text="First Name Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewFirstNameTitle"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewFirstNameTitle" />
@@ -175,7 +176,6 @@
         android:layout_marginStart="16dp"
         android:text="Last Name Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewLastNameTitle"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewLastNameTitle" />
@@ -187,7 +187,6 @@
         android:layout_marginStart="16dp"
         android:text="Phone Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewPhoneTitle"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewPhoneTitle" />
@@ -199,7 +198,6 @@
         android:layout_marginStart="16dp"
         android:text="Email Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewEmailTitle"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewEmailTitle" />
@@ -211,7 +209,6 @@
         android:layout_marginStart="16dp"
         android:text="Password Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewPasswordTitle"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewPasswordTitle" />
@@ -223,7 +220,6 @@
         android:layout_marginStart="16dp"
         android:text="Brokerage Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewBrokerageTitle"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewBrokerageTitle" />
@@ -235,7 +231,6 @@
         android:layout_marginStart="16dp"
         android:text="Address Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewBrokerageAddress"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewBrokerageAddress" />
@@ -248,7 +243,6 @@
         android:layout_marginBottom="8dp"
         android:text="City Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewBrokerageCity"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewBrokerageCity" />
@@ -260,7 +254,6 @@
         android:layout_marginStart="16dp"
         android:text="State Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewBrokerageState"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewBrokerageState" />
@@ -272,7 +265,6 @@
         android:layout_marginStart="16dp"
         android:text="Zip Value"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/UserProfileTextViewBrokerageZip"
         app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/UserProfileTextViewBrokerageZip" />
