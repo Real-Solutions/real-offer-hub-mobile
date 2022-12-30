@@ -15,5 +15,26 @@
         android:id="@+id/nav_view"
         android:layout_gravity="start"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/MainActivityTextViewWelcome"
+        app:layout_constraintStart_toEndOf="@+id/MainActivityTextViewWelcome">
+
+        <TextView
+            android:id="@+id/MainActivityTextViewWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to Offer Hub!"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
