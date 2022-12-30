@@ -75,13 +75,14 @@ public class DashboardActivity extends DrawerBaseActivity {
 
         callingIntent = getIntent();
         getUserType();
-        getData();
-        recyclerView = findViewById(R.id.recyclerView);
-        Adapter adapter = new Adapter(modelList);
-        recyclerView.setAdapter(adapter);
+//        getData();
+//        recyclerView = findViewById(R.id.recyclerView);
+//        Adapter adapter = new Adapter(modelList);
+//        recyclerView.setAdapter(adapter);
 
 //        getDataFromDB();
-//        setupRecyclerView();
+        setupRecyclerView();
+
         dataTestButton();
         addPropertyButton();
 
@@ -94,8 +95,11 @@ public class DashboardActivity extends DrawerBaseActivity {
     }
 
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
+        getDataFromDB();
+        recyclerViewAdapter.updateOfferListData(offerList);
+
 
     }
 
@@ -171,12 +175,12 @@ public class DashboardActivity extends DrawerBaseActivity {
         });
     }
 
-    private void getData() {
-        modelList = new ArrayList<>();
-        modelList.add(new ModelB("1675 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
-        modelList.add(new ModelB("1676 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
-        modelList.add(new ModelB("1677 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
-    }
+//    private void getData() {
+//        modelList = new ArrayList<>();
+//        modelList.add(new ModelB("1675 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
+//        modelList.add(new ModelB("1676 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
+//        modelList.add(new ModelB("1677 E Main St", "$5,000", "FHA", "Matt Torres", "12/30/22", "7:00pm", "12/31/22"));
+//    }
 
     public void addPropertyButton(){
         FloatingActionButton addProperty = DashboardActivity.this.findViewById(R.id.DashboardFloatingActionBtnAddProperty);
@@ -188,29 +192,29 @@ public class DashboardActivity extends DrawerBaseActivity {
 
 
 
-//    private void getDataFromDB(){
-//        offerList.clear();
-//        Amplify.API.query(
-//                ModelQuery.list(Offer.class),
-//                success -> {
-//                    Log.i(TAG, "Read task list successfully");
-//                    for (Offer databaseOfferList : success.getData()) {
-//                        offerList.add(databaseOfferList);
-//                    }
-//                    runOnUiThread(() -> recyclerViewAdapter.notifyDataSetChanged());
-//                },
-//                failure -> Log.i(TAG, "Failed to read offer list")
-//        );
-//    }
-//
-//    public void setupRecyclerView(){
-//        offerList = new ArrayList<>();
-//        recyclerView = findViewById(R.id.recyclerView);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-//        recyclerView.setLayoutManager(layoutManager);
-//        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(offerList);
-//        recyclerView.setAdapter(recyclerViewAdapter);
-//    }
+    private void getDataFromDB(){
+        offerList.clear();
+        Amplify.API.query(
+                ModelQuery.list(Offer.class),
+                success -> {
+                    Log.i(TAG, "Read task list successfully");
+                    for (Offer databaseOfferList : success.getData()) {
+                        offerList.add(databaseOfferList);
+                    }
+                    runOnUiThread(() -> recyclerViewAdapter.notifyDataSetChanged());
+                },
+                failure -> Log.i(TAG, "Failed to read offer list")
+        );
+    }
+
+    public void setupRecyclerView(){
+        offerList = new ArrayList<>();
+        recyclerView = findViewById(R.id.recyclerView);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerViewAdapter = new RecyclerViewAdapter(offerList, this);
+        recyclerView.setAdapter(recyclerViewAdapter);
+    }
 
     public void getUserType(){
         Amplify.API.query(
