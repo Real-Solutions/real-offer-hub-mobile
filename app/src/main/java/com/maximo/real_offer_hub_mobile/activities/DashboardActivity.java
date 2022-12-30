@@ -1,5 +1,8 @@
 package com.maximo.real_offer_hub_mobile.activities;
 
+
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import static com.amplifyframework.core.Amplify.Auth;
 import static com.maximo.real_offer_hub_mobile.activities.auth.LoginActivity.EMAIL_TAG;
 
@@ -9,25 +12,31 @@ import androidx.work.impl.model.Preference;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+
 import android.util.Log;
 import android.widget.Button;
+
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.datastore.generated.model.Offer;
+
+import android.preference.PreferenceManager;
 
 
 import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
-import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Client;
 import com.amplifyframework.datastore.generated.model.Property;
 import com.amplifyframework.datastore.generated.model.User;
 
 import com.amplifyframework.datastore.generated.model.UserType;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.maximo.real_offer_hub_mobile.R;
 import com.maximo.real_offer_hub_mobile.activities.auth.LoginActivity;
 import com.maximo.real_offer_hub_mobile.activities.auth.SignUpActivity;
 import com.maximo.real_offer_hub_mobile.adapter.Adapter;
+import com.maximo.real_offer_hub_mobile.adapter.RecyclerViewAdapter;
 import com.maximo.real_offer_hub_mobile.databinding.ActivityDashboardBinding;
 
 import java.util.ArrayList;
@@ -42,6 +51,13 @@ public class DashboardActivity extends DrawerBaseActivity {
     ActivityDashboardBinding activityDashboardBinding;
     RecyclerView recyclerView;
     List<ModelB> modelList;
+
+    List<Offer> offerList;
+    RecyclerViewAdapter recyclerViewAdapter;
+
+    public final static String TAG = "DashboardActivityTag";
+
+
     StringBuilder cognitoID = new StringBuilder();
     Intent callingIntent;
     private static UserType userType;
@@ -67,6 +83,8 @@ public class DashboardActivity extends DrawerBaseActivity {
         Adapter adapter = new Adapter(modelList);
         recyclerView.setAdapter(adapter);
 
+//        getDataFromDB();
+//        setupRecyclerView();
         dataTestButton();
         addPropertyButton();
 
@@ -171,6 +189,32 @@ public class DashboardActivity extends DrawerBaseActivity {
             startActivity(goToAddPropertyIntent);
         });
     }
+
+
+
+//    private void getDataFromDB(){
+//        offerList.clear();
+//        Amplify.API.query(
+//                ModelQuery.list(Offer.class),
+//                success -> {
+//                    Log.i(TAG, "Read task list successfully");
+//                    for (Offer databaseOfferList : success.getData()) {
+//                        offerList.add(databaseOfferList);
+//                    }
+//                    runOnUiThread(() -> recyclerViewAdapter.notifyDataSetChanged());
+//                },
+//                failure -> Log.i(TAG, "Failed to read offer list")
+//        );
+//    }
+//
+//    public void setupRecyclerView(){
+//        offerList = new ArrayList<>();
+//        recyclerView = findViewById(R.id.recyclerView);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(layoutManager);
+//        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(offerList);
+//        recyclerView.setAdapter(recyclerViewAdapter);
+//    }
 
     public void getUserType(){
         Amplify.API.query(
