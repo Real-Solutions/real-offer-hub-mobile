@@ -55,8 +55,6 @@ public class DashboardActivity extends DrawerBaseActivity {
     List<Offer> offerList;
     RecyclerViewAdapter recyclerViewAdapter;
 
-
-
     StringBuilder cognitoID = new StringBuilder();
     Intent callingIntent;
     private static UserType userType;
@@ -91,7 +89,6 @@ public class DashboardActivity extends DrawerBaseActivity {
         new Timer().schedule(new TimerTask() {
             @Override
             public void run() {
-                // this code will be executed after 2 seconds
                 getAuthUser();
             }
         }, 20000);
